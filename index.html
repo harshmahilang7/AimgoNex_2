@@ -1,12 +1,10 @@
 <!-- 
   @Author: DASTAN_E_ALAM
-  @Date:   2025-06-27 04:41:35
+  @Date:   2025-06-29 12:43:07
   @Last Modified by:   DASTAN_E_ALAM
-  @Last Modified time: 2025-06-27 04:43:23
+  @Last Modified time: 2025-06-29 16:34:22
 -->
-
 <!DOCTYPE html>
-<!-- This site was created in Webflow. https://webflow.com --><!-- Last Published: Thu May 29 2025 16:02:03 GMT+0000 (Coordinated Universal Time) -->
 <html
   data-wf-domain="knights-template.webflow.io"
   data-wf-page="6479bf3077a280ff74cc75fb"
@@ -15,15 +13,15 @@
 >
   <head>
     <meta charset="utf-8" />
-    <title>Knights - Webflow Ecommerce website template</title>
+    <title>AmigoNex - Your Real Estate Ally</title>
     <meta
-      content="Secure and reliable payment gateway solutions for your online business. Accept credit cards, digital wallets, and more with fast, encrypted transactions and global support."
+      content="Real estate virtual assistance services for agents including transaction coordination, listing marketing, social media management, and more."
       name="description"
     />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Webflow" name="generator" />
     <link
-      href="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/css/knights-template.webflow.shared.a9e81c3ad.css"
+      href="css/knights-template.webflow.shared.a9e81c3ad.css"
       rel="stylesheet"
       type="text/css"
     />
@@ -61,18 +59,402 @@
       href="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/6838734f1deb503995d13976_Webclip.jpg"
       rel="apple-touch-icon"
     />
-    <script type="text/javascript">
-      window.__WEBFLOW_CURRENCY_SETTINGS = {
-        currencyCode: "USD",
-        symbol: "$",
-        decimal: ".",
-        fractionDigits: 2,
-        group: ",",
-        template:
-          '{{wf {"path":"symbol","type":"PlainText"} }} {{wf {"path":"amount","type":"CommercePrice"} }} {{wf {"path":"currencyCode","type":"PlainText"} }}',
-        hideDecimalForWholeNumbers: false,
-      };
-    </script>
+
+
+    <style>
+:root {
+  --dark-background: #0d0b0e;
+  --white-color: white;
+  --primary-color: #98eb47;
+  --border-color: #252326;
+  --secondary-color: #010206;
+}
+
+/* Base Styles */
+.faq-section,
+.comparison-section {
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--secondary-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  max-width: 1000px;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--white-color);
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: #a0aec0;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  line-height: 1.5;
+}
+
+/* FAQ Styles */
+.faq-item {
+  border-bottom: 1px solid var(--border-color);
+  padding: 1.25rem 0;
+}
+
+.faq-question {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--white-color);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.faq-question:hover {
+  color: var(--primary-color);
+}
+
+.faq-question::after {
+  content: '+';
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.faq-question.active::after {
+  content: '-';
+}
+
+.faq-answer {
+  color: #cbd5e0;
+  line-height: 1.7;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding-top 0.4s ease;
+}
+
+.faq-answer.show {
+  max-height: 500px;
+  padding-top: 1rem;
+}
+
+/* Comparison Table - Desktop */
+.comparison-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 1.5rem;
+}
+
+.comparison-row {
+  display: flex;
+}
+
+.comparison-row.header {
+  background-color: var(--dark-background);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.comparison-feature,
+.comparison-plan {
+  padding: 1.25rem 1.5rem;
+}
+
+.comparison-feature {
+  flex: 2;
+  font-weight: 600;
+  color: var(--white-color);
+  background-color: var(--secondary-color);
+  border-right: 1px solid var(--border-color);
+  position: sticky;
+  left: 0;
+}
+
+.comparison-plan {
+  flex: 1;
+  text-align: center;
+  color: #cbd5e0;
+  min-width: 150px;
+}
+
+.comparison-row.header .comparison-plan {
+  font-weight: 700;
+  color: var(--white-color);
+  background-color: var(--dark-background);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.comparison-row:nth-child(even) .comparison-plan {
+  background-color: rgba(13, 11, 14, 0.7);
+}
+
+.comparison-plan:not(.empty)::before {
+  content: '✓';
+  color: var(--primary-color);
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+/* Comparison Table - Mobile */
+@media (max-width: 768px) {
+  .faq-section,
+  .comparison-section {
+    padding: 1.5rem;
+    margin: 1.5rem auto;
+    border-radius: 10px;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .comparison-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 8px;
+    background-color: var(--dark-background);
+  }
+
+  .comparison-table-wrapper {
+    display: inline-block;
+    min-width: 100%;
+  }
+
+  .comparison-row {
+    display: flex;
+    min-width: 600px; /* Minimum width for scrollable table */
+  }
+
+  .comparison-feature {
+    position: static;
+    min-width: 200px;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .comparison-plan {
+    min-width: 150px;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .comparison-row.header {
+    position: static;
+  }
+
+  .comparison-row:last-child .comparison-feature,
+  .comparison-row:last-child .comparison-plan {
+    border-bottom: none;
+  }
+}
+
+/* Small Phone Optimization */
+@media (max-width: 480px) {
+  .faq-section,
+  .comparison-section {
+    padding: 1.25rem;
+    margin: 1.25rem 0;
+    border-radius: 8px;
+    border-left: none;
+    border-right: none;
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+    text-align: left;
+  }
+
+  .section-subtitle {
+    text-align: left;
+    font-size: 0.95rem;
+  }
+
+  .faq-question {
+    font-size: 1.1rem;
+  }
+
+  .faq-answer {
+    font-size: 0.95rem;
+  }
+
+  .comparison-table {
+    border-radius: 0;
+    background-color: transparent;
+  }
+}
+</style>
+<style>/* Dark Theme Variables */
+:root {
+  --bg-color: #1a1a1a;
+  --text-color: #f0f0f0;
+  --toggle-bg: #333;
+  --toggle-active: #98eb47; /* Your requested active color */
+  --toggle-inactive: #555;
+  --toggle-handle: #f0f0f0;
+  --switch-width: 60px;
+  --switch-height: 34px;
+  --slider-size: 26px;
+  --toggle-label-margin: 15px;
+}
+
+/* Pricing Toggle Container */
+.pricing-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Toggle Labels */
+.toggle-label {
+  color: var(--text-color);
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0 var(--toggle-label-margin);
+  transition: color 0.3s ease;
+}
+
+.toggle-label.active {
+  color: var(--toggle-active);
+  font-weight: 600;
+}
+
+/* Switch Styles */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: var(--switch-width);
+  height: var(--switch-height);
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Slider Styles */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--toggle-inactive);
+  transition: .4s;
+  border-radius: var(--switch-height);
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  height: var(--slider-size);
+  width: var(--slider-size);
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--toggle-handle);
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--toggle-active);
+}
+
+input:checked + .slider:before {
+  transform: translateX(calc(var(--switch-width) - var(--slider-size) - 8px));
+}
+
+/* Focus State */
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--toggle-active);
+}
+
+/* Round Slider */
+.slider.round {
+  border-radius: var(--switch-height);
+}
+
+/* JavaScript Interaction Classes */
+/* These will be toggled by your JavaScript */
+.monthly-active .toggle-label:first-child {
+  color: var(--toggle-active);
+  font-weight: 600;
+}
+
+.monthly-active .toggle-label:last-child {
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.annual-active .toggle-label:first-child {
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.annual-active .toggle-label:last-child {
+  color: var(--toggle-active);
+  font-weight: 600;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  :root {
+    --switch-width: 50px;
+    --switch-height: 28px;
+    --slider-size: 22px;
+    --toggle-label-margin: 10px;
+  }
+  
+  .toggle-label {
+    font-size: 14px;
+  }
+  
+  .pricing-toggle {
+    padding: 15px;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --switch-width: 45px;
+    --switch-height: 25px;
+    --slider-size: 19px;
+    --toggle-label-margin: 8px;
+  }
+  
+  .toggle-label {
+    font-size: 13px;
+  }
+  
+  .pricing-toggle {
+    padding: 10px;
+  }
+  
+}
+
+.w-webflow-badge
+  {
+       display: none !important;
+  }
+
+
+</style>
   </head>
   <body>
     <div class="header-section">
@@ -92,9 +474,10 @@
               aria-current="page"
               class="navbar-brand w-nav-brand w--current"
               ><img
-                src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/67f7b292aa6c388ad6abaf8a_486add0f26cfdb5d7df1324556a25df6_Header%20Logo.svg"
+                src="./public/copt.png"
                 loading="lazy"
-                alt="Logo"
+                alt="AmigoNex Logo"
+                width="250"
             /></a>
             <div class="nav-menu-wrap">
               <nav role="navigation" class="nav-main w-nav-menu">
@@ -105,920 +488,25 @@
                       aria-current="page"
                       class="nav-link w-inline-block w--current"
                       ><div>Home</div></a
-                    ><a href="/about-us" class="nav-link w-inline-block"
-                      ><div>About Us</div></a
-                    ><a href="/features" class="nav-link w-inline-block"
-                      ><div>Features</div></a
+                    ><a href="/services" class="nav-link w-inline-block"
+                      ><div>Services</div></a
                     ><a href="/pricing" class="nav-link w-inline-block"
                       ><div>Pricing</div></a
+                    ><a href="/about-us" class="nav-link w-inline-block"
+                      ><div>About</div></a
+                    ><a href="/contact-us" class="nav-link w-inline-block"
+                      ><div>Contact Us</div></a
                     >
-                    <div
-                      data-delay="0"
-                      data-hover="false"
-                      class="nav-drop-down w-dropdown"
-                    >
-                      <div class="dropdown-toggle w-dropdown-toggle">
-                        <div>Page</div>
-                        <img
-                          loading="lazy"
-                          src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/67f7af89776e7636fe31434e_56c89266d7e607a31dbff58c0c5afc01_Arrow.svg"
-                          alt="Arrow Icon"
-                          class="arrow"
-                        />
-                      </div>
-                      <nav class="dropdown-list w-dropdown-list">
-                        <a href="/blogs" class="dropdown-link w-dropdown-link"
-                          >Blogs</a
-                        ><a
-                          href="/reviews"
-                          class="dropdown-link w-dropdown-link"
-                          >Reviews</a
-                        ><a href="/faqs" class="dropdown-link w-dropdown-link"
-                          >Faq</a
-                        ><a
-                          href="/careers"
-                          class="dropdown-link last-child w-dropdown-link"
-                          >Careers</a
-                        >
-                      </nav>
-                    </div>
-                    <div class="mobile-button">
-                      <a href="#" class="nav-link w-inline-block"
-                        ><div>(907) 555-0101</div></a
-                      ><a href="#" class="primary-button w-button"
-                        >Get Started</a
-                      >
-                    </div>
                   </div>
                 </div>
               </nav>
-              <div class="desktop-cart">
-                <div
-                  data-open-product=""
-                  data-wf-cart-type="modal"
-                  data-wf-cart-query="query Dynamo2 {
-  database {
-    id
-    commerceOrder {
-      comment
-      extraItems {
-        name
-        pluginId
-        pluginName
-        price {
-          value
-          unit
-          decimalValue
-          string
-        }
-      }
-      id
-      startedOn
-      statusFlags {
-        hasDownloads
-        hasSubscription
-        isFreeOrder
-        requiresShipping
-      }
-      subtotal {
-        value
-        unit
-        decimalValue
-        string
-      }
-      total {
-        value
-        unit
-        decimalValue
-        string
-      }
-      updatedOn
-      userItems {
-        count
-        id
-        price {
-          value
-          unit
-          decimalValue
-          string
-        }
-        product {
-          id
-          cmsLocaleId
-          f__draft_0ht
-          f__archived_0ht
-          f_ec_product_type_2dr10dr {
-            id
-            name
-          }
-          f_name_
-          f_sku_properties_3dr {
-            id
-            name
-            enum {
-              id
-              name
-              slug
-            }
-          }
-        }
-        rowTotal {
-          value
-          unit
-          decimalValue
-          string
-        }
-        sku {
-          cmsLocaleId
-          f__draft_0ht
-          f__archived_0ht
-          f_main_image_4dr {
-            url
-            file {
-              size
-              origFileName
-              createdOn
-              updatedOn
-              mimeType
-              width
-              height
-              variants {
-                origFileName
-                quality
-                height
-                width
-                s3Url
-                error
-                size
-              }
-            }
-            alt
-          }
-          f_sku_values_3dr {
-            property {
-              id
-            }
-            value {
-              id
-            }
-          }
-          id
-        }
-        subscriptionFrequency
-        subscriptionInterval
-        subscriptionTrial
-      }
-      userItemsCount
-    }
-  }
-  site {
-    id
-    commerce {
-      businessAddress {
-        country
-      }
-      defaultCountry
-      defaultCurrency
-      quickCheckoutEnabled
-    }
-  }
-}"
-                  data-wf-page-link-href-prefix=""
-                  class="w-commerce-commercecartwrapper"
-                  data-node-type="commerce-cart-wrapper"
-                >
-                  <a
-                    class="w-commerce-commercecartopenlink cart-button w-inline-block"
-                    role="button"
-                    aria-haspopup="dialog"
-                    aria-label="Open cart"
-                    data-node-type="commerce-cart-open-link"
-                    href="#"
-                    ><div class="w-inline-block">Cart</div>
-                    <div
-                      data-wf-bindings="%5B%7B%22innerHTML%22%3A%7B%22type%22%3A%22Number%22%2C%22filter%22%3A%7B%22type%22%3A%22numberPrecision%22%2C%22params%22%3A%5B%220%22%2C%22numberPrecision%22%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItemsCount%22%7D%7D%5D"
-                      class="w-commerce-commercecartopenlinkcount cart-quantity"
-                    >
-                      0
-                    </div></a
-                  >
-                  <div
-                    style="display: none"
-                    class="w-commerce-commercecartcontainerwrapper w-commerce-commercecartcontainerwrapper--cartType-modal"
-                    data-node-type="commerce-cart-container-wrapper"
-                  >
-                    <div
-                      data-node-type="commerce-cart-container"
-                      role="dialog"
-                      class="w-commerce-commercecartcontainer cart-container"
-                    >
-                      <div class="w-commerce-commercecartheader cart-header">
-                        <h4 class="w-commerce-commercecartheading">
-                          Your Cart
-                        </h4>
-                        <a
-                          class="w-commerce-commercecartcloselink w-inline-block"
-                          role="button"
-                          aria-label="Close cart"
-                          data-node-type="commerce-cart-close-link"
-                          ><svg
-                            class="cart-closed"
-                            width="16px"
-                            height="16px"
-                            viewBox="0 0 16 16"
-                          >
-                            <g
-                              stroke="none"
-                              stroke-width="1"
-                              fill="none"
-                              fill-rule="evenodd"
-                            >
-                              <g fill-rule="nonzero" fill="#333333">
-                                <polygon
-                                  points="6.23223305 8 0.616116524 13.6161165 2.38388348 15.3838835 8 9.76776695 13.6161165 15.3838835 15.3838835 13.6161165 9.76776695 8 15.3838835 2.38388348 13.6161165 0.616116524 8 6.23223305 2.38388348 0.616116524 0.616116524 2.38388348 6.23223305 8"
-                                ></polygon>
-                              </g>
-                            </g></svg></a>
-                      </div>
-                      <div class="w-commerce-commercecartformwrapper">
-                        <form
-                          style="display: none"
-                          class="w-commerce-commercecartform"
-                          data-node-type="commerce-cart-form"
-                        >
-                          <script
-                            type="text/x-wf-template"
-                            id="wf-template-8f823880-3b4e-b994-01bc-8eca29fda331"
-                          >
-                            %3Cdiv%20class%3D%22w-commerce-commercecartitem%22%3E%3Cimg%20data-wf-bindings%3D%22%255B%257B%2522src%2522%253A%257B%2522type%2522%253A%2522ImageRef%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.sku.f_main_image_4dr%2522%257D%257D%255D%22%20src%3D%22%22%20alt%3D%22%22%20class%3D%22w-commerce-commercecartitemimage%20w-dyn-bind-empty%22%2F%3E%3Cdiv%20class%3D%22w-commerce-commercecartiteminfo%22%3E%3Cdiv%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522PlainText%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_name_%2522%257D%257D%255D%22%20class%3D%22w-commerce-commercecartproductname%20cart-title%20w-dyn-bind-empty%22%3E%3C%2Fdiv%3E%3Cdiv%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522CommercePrice%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522price%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.price%2522%257D%257D%255D%22%20class%3D%22cart-price%22%3E%24%C2%A00.00%C2%A0USD%3C%2Fdiv%3E%3Cscript%20type%3D%22text%2Fx-wf-template%22%20id%3D%22wf-template-8f823880-3b4e-b994-01bc-8eca29fda337%22%3E%253Cli%253E%253Cspan%2520data-wf-bindings%253D%2522%25255B%25257B%252522innerHTML%252522%25253A%25257B%252522type%252522%25253A%252522PlainText%252522%25252C%252522filter%252522%25253A%25257B%252522type%252522%25253A%252522identity%252522%25252C%252522params%252522%25253A%25255B%25255D%25257D%25252C%252522dataPath%252522%25253A%252522database.commerceOrder.userItems%25255B%25255D.product.f_sku_properties_3dr%25255B%25255D.name%252522%25257D%25257D%25255D%2522%2520class%253D%2522w-dyn-bind-empty%2522%253E%253C%252Fspan%253E%253Cspan%253E%253A%2520%253C%252Fspan%253E%253Cspan%2520data-wf-bindings%253D%2522%25255B%25257B%252522innerHTML%252522%25253A%25257B%252522type%252522%25253A%252522CommercePropValues%252522%25252C%252522filter%252522%25253A%25257B%252522type%252522%25253A%252522identity%252522%25252C%252522params%252522%25253A%25255B%25255D%25257D%25252C%252522dataPath%252522%25253A%252522database.commerceOrder.userItems%25255B%25255D.product.f_sku_properties_3dr%25255B%25255D%252522%25257D%25257D%25255D%2522%2520class%253D%2522w-dyn-bind-empty%2522%253E%253C%252Fspan%253E%253C%252Fli%253E%3C%2Fscript%3E%3Cul%20data-wf-bindings%3D%22%255B%257B%2522optionSets%2522%253A%257B%2522type%2522%253A%2522CommercePropTable%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%5B%5D%2522%257D%257D%252C%257B%2522optionValues%2522%253A%257B%2522type%2522%253A%2522CommercePropValues%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.sku.f_sku_values_3dr%2522%257D%257D%255D%22%20class%3D%22w-commerce-commercecartoptionlist%22%20data-wf-collection%3D%22database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%22%20data-wf-template-id%3D%22wf-template-8f823880-3b4e-b994-01bc-8eca29fda337%22%3E%3Cli%3E%3Cspan%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522PlainText%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%255B%255D.name%2522%257D%257D%255D%22%20class%3D%22w-dyn-bind-empty%22%3E%3C%2Fspan%3E%3Cspan%3E%3A%20%3C%2Fspan%3E%3Cspan%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522CommercePropValues%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%255B%255D%2522%257D%257D%255D%22%20class%3D%22w-dyn-bind-empty%22%3E%3C%2Fspan%3E%3C%2Fli%3E%3C%2Ful%3E%3Ca%20href%3D%22%23%22%20role%3D%22button%22%20data-wf-bindings%3D%22%255B%257B%2522data-commerce-sku-id%2522%253A%257B%2522type%2522%253A%2522ItemRef%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.sku.id%2522%257D%257D%255D%22%20class%3D%22remove-button%20w-inline-block%22%20data-wf-cart-action%3D%22remove-item%22%20data-commerce-sku-id%3D%22%22%20aria-label%3D%22Remove%20item%20from%20cart%22%3E%3Cdiv%3ERemove%3C%2Fdiv%3E%3C%2Fa%3E%3C%2Fdiv%3E%3Cinput%20aria-label%3D%22Update%20quantity%22%20data-wf-bindings%3D%22%255B%257B%2522value%2522%253A%257B%2522type%2522%253A%2522Number%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522numberPrecision%2522%252C%2522params%2522%253A%255B%25220%2522%252C%2522numberPrecision%2522%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.count%2522%257D%257D%252C%257B%2522data-commerce-sku-id%2522%253A%257B%2522type%2522%253A%2522ItemRef%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.sku.id%2522%257D%257D%255D%22%20data-wf-conditions%3D%22%257B%2522condition%2522%253A%257B%2522fields%2522%253A%257B%2522product%253Aec-product-type%2522%253A%257B%2522ne%2522%253A%2522e348fd487d0102946c9179d2a94bb613%2522%252C%2522type%2522%253A%2522Option%2522%257D%257D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D%2522%257D%22%20class%3D%22w-commerce-commercecartquantity%20cart-quantity%22%20required%3D%22%22%20pattern%3D%22%5E%5B0-9%5D%2B%24%22%20inputMode%3D%22numeric%22%20type%3D%22number%22%20name%3D%22quantity%22%20autoComplete%3D%22off%22%20data-wf-cart-action%3D%22update-item-quantity%22%20data-commerce-sku-id%3D%22%22%20value%3D%221%22%2F%3E%3C%2Fdiv%3E
-                          </script>
-                          <div
-                            class="w-commerce-commercecartlist"
-                            data-wf-collection="database.commerceOrder.userItems"
-                            data-wf-template-id="wf-template-8f823880-3b4e-b994-01bc-8eca29fda331"
-                          >
-                            <div class="w-commerce-commercecartitem">
-                              <img
-                                data-wf-bindings="%5B%7B%22src%22%3A%7B%22type%22%3A%22ImageRef%22%2C%22filter%22%3A%7B%22type%22%3A%22identity%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.sku.f_main_image_4dr%22%7D%7D%5D"
-                                src=""
-                                alt=""
-                                class="w-commerce-commercecartitemimage w-dyn-bind-empty"
-                              />
-                              <div class="w-commerce-commercecartiteminfo">
-                                <div
-                                  data-wf-bindings="%5B%7B%22innerHTML%22%3A%7B%22type%22%3A%22PlainText%22%2C%22filter%22%3A%7B%22type%22%3A%22identity%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.product.f_name_%22%7D%7D%5D"
-                                  class="w-commerce-commercecartproductname cart-title w-dyn-bind-empty"
-                                ></div>
-                                <div
-                                  data-wf-bindings="%5B%7B%22innerHTML%22%3A%7B%22type%22%3A%22CommercePrice%22%2C%22filter%22%3A%7B%22type%22%3A%22price%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.price%22%7D%7D%5D"
-                                  class="cart-price"
-                                >
-                                  $ 0.00 USD
-                                </div>
-                                <script
-                                  type="text/x-wf-template"
-                                  id="wf-template-8f823880-3b4e-b994-01bc-8eca29fda337"
-                                >
-                                  %3Cli%3E%3Cspan%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522PlainText%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%255B%255D.name%2522%257D%257D%255D%22%20class%3D%22w-dyn-bind-empty%22%3E%3C%2Fspan%3E%3Cspan%3E%3A%20%3C%2Fspan%3E%3Cspan%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522CommercePropValues%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%255B%255D%2522%257D%257D%255D%22%20class%3D%22w-dyn-bind-empty%22%3E%3C%2Fspan%3E%3C%2Fli%3E
-                                </script>
-                                <ul
-                                  data-wf-bindings="%5B%7B%22optionSets%22%3A%7B%22type%22%3A%22CommercePropTable%22%2C%22filter%22%3A%7B%22type%22%3A%22identity%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.product.f_sku_properties_3dr[]%22%7D%7D%2C%7B%22optionValues%22%3A%7B%22type%22%3A%22CommercePropValues%22%2C%22filter%22%3A%7B%22type%22%3A%22identity%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.sku.f_sku_values_3dr%22%7D%7D%5D"
-                                  class="w-commerce-commercecartoptionlist"
-                                  data-wf-collection="database.commerceOrder.userItems%5B%5D.product.f_sku_properties_3dr"
-                                  data-wf-template-id="wf-template-8f823880-3b4e-b994-01bc-8eca29fda337"
-                                >
-                                  <li>
-                                    <span
-                                      data-wf-bindings="%5B%7B%22innerHTML%22%3A%7B%22type%22%3A%22PlainText%22%2C%22filter%22%3A%7B%22type%22%3A%22identity%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.product.f_sku_properties_3dr%5B%5D.name%22%7D%7D%5D"
-                                      class="w-dyn-bind-empty"
-                                    ></span
-                                    ><span>: </span
-                                    ><span
-                                      data-wf-bindings="%5B%7B%22innerHTML%22%3A%7B%22type%22%3A%22CommercePropValues%22%2C%22filter%22%3A%7B%22type%22%3A%22identity%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.product.f_sku_properties_3dr%5B%5D%22%7D%7D%5D"
-                                      class="w-dyn-bind-empty"
-                                    ></span>
-                                  </li>
-                                </ul>
-                                <a
-                                  href="#"
-                                  role="button"
-                                  data-wf-bindings="%5B%7B%22data-commerce-sku-id%22%3A%7B%22type%22%3A%22ItemRef%22%2C%22filter%22%3A%7B%22type%22%3A%22identity%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.sku.id%22%7D%7D%5D"
-                                  class="remove-button w-inline-block"
-                                  data-wf-cart-action="remove-item"
-                                  data-commerce-sku-id=""
-                                  aria-label="Remove item from cart"
-                                  ><div>Remove</div></a
-                                >
-                              </div>
-                              <input
-                                aria-label="Update quantity"
-                                data-wf-bindings="%5B%7B%22value%22%3A%7B%22type%22%3A%22Number%22%2C%22filter%22%3A%7B%22type%22%3A%22numberPrecision%22%2C%22params%22%3A%5B%220%22%2C%22numberPrecision%22%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.count%22%7D%7D%2C%7B%22data-commerce-sku-id%22%3A%7B%22type%22%3A%22ItemRef%22%2C%22filter%22%3A%7B%22type%22%3A%22identity%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.sku.id%22%7D%7D%5D"
-                                data-wf-conditions="%7B%22condition%22%3A%7B%22fields%22%3A%7B%22product%3Aec-product-type%22%3A%7B%22ne%22%3A%22e348fd487d0102946c9179d2a94bb613%22%2C%22type%22%3A%22Option%22%7D%7D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D%22%7D"
-                                class="w-commerce-commercecartquantity cart-quantity"
-                                required=""
-                                pattern="^[0-9]+$"
-                                inputmode="numeric"
-                                type="number"
-                                name="quantity"
-                                autocomplete="off"
-                                data-wf-cart-action="update-item-quantity"
-                                data-commerce-sku-id=""
-                                value="1"
-                              />
-                            </div>
-                          </div>
-                          <div
-                            class="w-commerce-commercecartfooter cart-footer"
-                          >
-                            <div
-                              aria-atomic="true"
-                              aria-live="polite"
-                              class="w-commerce-commercecartlineitem cart-line-item"
-                            >
-                              <div>Subtotal</div>
-                              <div
-                                data-wf-bindings="%5B%7B%22innerHTML%22%3A%7B%22type%22%3A%22CommercePrice%22%2C%22filter%22%3A%7B%22type%22%3A%22price%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.subtotal%22%7D%7D%5D"
-                                class="w-commerce-commercecartordervalue"
-                              ></div>
-                            </div>
-                            <div>
-                              <div
-                                data-node-type="commerce-cart-quick-checkout-actions"
-                                style="display: none"
-                              >
-                                <a
-                                  data-node-type="commerce-cart-apple-pay-button"
-                                  role="button"
-                                  aria-label="Apple Pay"
-                                  aria-haspopup="dialog"
-                                  style="
-                                    background-image: -webkit-named-image(
-                                      apple-pay-logo-white
-                                    );
-                                    background-size: 100% 50%;
-                                    background-position: 50% 50%;
-                                    background-repeat: no-repeat;
-                                  "
-                                  class="w-commerce-commercecartapplepaybutton"
-                                  tabindex="0"
-                                  ><div></div></a
-                                ><a
-                                  data-node-type="commerce-cart-quick-checkout-button"
-                                  role="button"
-                                  tabindex="0"
-                                  aria-haspopup="dialog"
-                                  style="display: none"
-                                  class="w-commerce-commercecartquickcheckoutbutton"
-                                  ><svg
-                                    class="w-commerce-commercequickcheckoutgoogleicon"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="16"
-                                    height="16"
-                                    viewBox="0 0 16 16"
-                                  >
-                                    <defs>
-                                      <polygon
-                                        id="google-mark-a"
-                                        points="0 .329 3.494 .329 3.494 7.649 0 7.649"
-                                      ></polygon>
-                                      <polygon
-                                        id="google-mark-c"
-                                        points=".894 0 13.169 0 13.169 6.443 .894 6.443"
-                                      ></polygon>
-                                    </defs>
-                                    <g fill="none" fill-rule="evenodd">
-                                      <path
-                                        fill="#4285F4"
-                                        d="M10.5967,12.0469 L10.5967,14.0649 L13.1167,14.0649 C14.6047,12.6759 15.4577,10.6209 15.4577,8.1779 C15.4577,7.6339 15.4137,7.0889 15.3257,6.5559 L7.8887,6.5559 L7.8887,9.6329 L12.1507,9.6329 C11.9767,10.6119 11.4147,11.4899 10.5967,12.0469"
-                                      ></path>
-                                      <path
-                                        fill="#34A853"
-                                        d="M7.8887,16 C10.0137,16 11.8107,15.289 13.1147,14.067 C13.1147,14.066 13.1157,14.065 13.1167,14.064 L10.5967,12.047 C10.5877,12.053 10.5807,12.061 10.5727,12.067 C9.8607,12.556 8.9507,12.833 7.8887,12.833 C5.8577,12.833 4.1387,11.457 3.4937,9.605 L0.8747,9.605 L0.8747,11.648 C2.2197,14.319 4.9287,16 7.8887,16"
-                                      ></path>
-                                      <g transform="translate(0 4)">
-                                        <mask id="google-mark-b" fill="#fff">
-                                          <use
-                                            xlink:href="#google-mark-a"
-                                          ></use>
-                                        </mask>
-                                        <path
-                                          fill="#FBBC04"
-                                          d="M3.4639,5.5337 C3.1369,4.5477 3.1359,3.4727 3.4609,2.4757 L3.4639,2.4777 C3.4679,2.4657 3.4749,2.4547 3.4789,2.4427 L3.4939,0.3287 L0.8939,0.3287 C0.8799,0.3577 0.8599,0.3827 0.8459,0.4117 C-0.2821,2.6667 -0.2821,5.3337 0.8459,7.5887 L0.8459,7.5997 C0.8549,7.6167 0.8659,7.6317 0.8749,7.6487 L3.4939,5.6057 C3.4849,5.5807 3.4729,5.5587 3.4639,5.5337"
-                                          mask="url(#google-mark-b)"
-                                        ></path>
-                                      </g>
-                                      <mask id="google-mark-d" fill="#fff">
-                                        <use xlink:href="#google-mark-c"></use>
-                                      </mask>
-                                      <path
-                                        fill="#EA4335"
-                                        d="M0.894,4.3291 L3.478,6.4431 C4.113,4.5611 5.843,3.1671 7.889,3.1671 C9.018,3.1451 10.102,3.5781 10.912,4.3671 L13.169,2.0781 C11.733,0.7231 9.85,-0.0219 7.889,0.0001 C4.941,0.0001 2.245,1.6791 0.894,4.3291"
-                                        mask="url(#google-mark-d)"
-                                      ></path>
-                                    </g></svg
-                                  ><svg
-                                    class="w-commerce-commercequickcheckoutmicrosofticon"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="16"
-                                    height="16"
-                                    viewBox="0 0 16 16"
-                                  >
-                                    <g fill="none" fill-rule="evenodd">
-                                      <polygon
-                                        fill="#F05022"
-                                        points="7 7 1 7 1 1 7 1"
-                                      ></polygon>
-                                      <polygon
-                                        fill="#7DB902"
-                                        points="15 7 9 7 9 1 15 1"
-                                      ></polygon>
-                                      <polygon
-                                        fill="#00A4EE"
-                                        points="7 15 1 15 1 9 7 9"
-                                      ></polygon>
-                                      <polygon
-                                        fill="#FFB700"
-                                        points="15 15 9 15 9 9 15 9"
-                                      ></polygon>
-                                    </g>
-                                  </svg>
-                                  <div>Pay with browser.</div></a
-                                >
-                              </div>
-                              <a
-                                href="/checkout"
-                                value="Continue to Checkout"
-                                class="w-commerce-commercecartcheckoutbutton primary-button"
-                                data-loading-text="Hang Tight..."
-                                data-node-type="cart-checkout-button"
-                                >Continue to Checkout</a
-                              >
-                            </div>
-                          </div>
-                        </form>
-                        <div class="w-commerce-commercecartemptystate">
-                          <div
-                            aria-label="This cart is empty"
-                            aria-live="polite"
-                            class="empty-text"
-                          >
-                            No items found.
-                          </div>
-                        </div>
-                        <div
-                          aria-live="assertive"
-                          style="display: none"
-                          data-node-type="commerce-cart-error"
-                          class="w-commerce-commercecarterrorstate"
-                        >
-                          <div
-                            class="w-cart-error-msg"
-                            data-w-cart-quantity-error="Product is not available in this quantity."
-                            data-w-cart-general-error="Something went wrong when adding this item to the cart."
-                            data-w-cart-checkout-error="Checkout is disabled on this site."
-                            data-w-cart-cart_order_min-error="The order minimum was not met. Add more items to your cart to continue."
-                            data-w-cart-subscription_error-error="Before you purchase, please use your email invite to verify your address so we can send order updates."
-                          >
-                            Product is not available in this quantity.
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
             <div class="right-menu">
-              <a href="#" class="nav-link w-inline-block"
-                ><div>(907) 555-0101</div></a
-              ><a href="/contact-us" class="primary-button w-button"
+              <a href="/contact-us" class="primary-button w-button"
                 >Get Started</a
               >
             </div>
             <div class="mobile-cart">
-              <div
-                data-open-product=""
-                data-wf-cart-type="modal"
-                data-wf-cart-query="query Dynamo2 {
-  database {
-    id
-    commerceOrder {
-      comment
-      extraItems {
-        name
-        pluginId
-        pluginName
-        price {
-          value
-          unit
-          decimalValue
-          string
-        }
-      }
-      id
-      startedOn
-      statusFlags {
-        hasDownloads
-        hasSubscription
-        isFreeOrder
-        requiresShipping
-      }
-      subtotal {
-        value
-        unit
-        decimalValue
-        string
-      }
-      total {
-        value
-        unit
-        decimalValue
-        string
-      }
-      updatedOn
-      userItems {
-        count
-        id
-        price {
-          value
-          unit
-          decimalValue
-          string
-        }
-        product {
-          id
-          cmsLocaleId
-          f__draft_0ht
-          f__archived_0ht
-          f_ec_product_type_2dr10dr {
-            id
-            name
-          }
-          f_name_
-          f_sku_properties_3dr {
-            id
-            name
-            enum {
-              id
-              name
-              slug
-            }
-          }
-        }
-        rowTotal {
-          value
-          unit
-          decimalValue
-          string
-        }
-        sku {
-          cmsLocaleId
-          f__draft_0ht
-          f__archived_0ht
-          f_main_image_4dr {
-            url
-            file {
-              size
-              origFileName
-              createdOn
-              updatedOn
-              mimeType
-              width
-              height
-              variants {
-                origFileName
-                quality
-                height
-                width
-                s3Url
-                error
-                size
-              }
-            }
-            alt
-          }
-          f_sku_values_3dr {
-            property {
-              id
-            }
-            value {
-              id
-            }
-          }
-          id
-        }
-        subscriptionFrequency
-        subscriptionInterval
-        subscriptionTrial
-      }
-      userItemsCount
-    }
-  }
-  site {
-    id
-    commerce {
-      businessAddress {
-        country
-      }
-      defaultCountry
-      defaultCurrency
-      quickCheckoutEnabled
-    }
-  }
-}"
-                data-wf-page-link-href-prefix=""
-                class="w-commerce-commercecartwrapper"
-                data-node-type="commerce-cart-wrapper"
-              >
-                <a
-                  class="w-commerce-commercecartopenlink cart-button w-inline-block"
-                  role="button"
-                  aria-haspopup="dialog"
-                  aria-label="Open cart"
-                  data-node-type="commerce-cart-open-link"
-                  href="#"
-                  ><div class="w-inline-block">Cart</div>
-                  <div
-                    data-wf-bindings="%5B%7B%22innerHTML%22%3A%7B%22type%22%3A%22Number%22%2C%22filter%22%3A%7B%22type%22%3A%22numberPrecision%22%2C%22params%22%3A%5B%220%22%2C%22numberPrecision%22%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItemsCount%22%7D%7D%5D"
-                    class="w-commerce-commercecartopenlinkcount cart-quantity"
-                  >
-                    0
-                  </div></a
-                >
-                <div
-                  style="display: none"
-                  class="w-commerce-commercecartcontainerwrapper w-commerce-commercecartcontainerwrapper--cartType-modal"
-                  data-node-type="commerce-cart-container-wrapper"
-                >
-                  <div
-                    data-node-type="commerce-cart-container"
-                    role="dialog"
-                    class="w-commerce-commercecartcontainer cart-container-2"
-                  >
-                    <div class="w-commerce-commercecartheader cart-header-2">
-                      <h4 class="w-commerce-commercecartheading">Your Cart</h4>
-                      <a
-                        class="w-commerce-commercecartcloselink w-inline-block"
-                        role="button"
-                        aria-label="Close cart"
-                        data-node-type="commerce-cart-close-link"
-                        ><svg width="16px" height="16px" viewBox="0 0 16 16">
-                          <g
-                            stroke="none"
-                            stroke-width="1"
-                            fill="none"
-                            fill-rule="evenodd"
-                          >
-                            <g fill-rule="nonzero" fill="#333333">
-                              <polygon
-                                points="6.23223305 8 0.616116524 13.6161165 2.38388348 15.3838835 8 9.76776695 13.6161165 15.3838835 15.3838835 13.6161165 9.76776695 8 15.3838835 2.38388348 13.6161165 0.616116524 8 6.23223305 2.38388348 0.616116524 0.616116524 2.38388348 6.23223305 8"
-                              ></polygon>
-                            </g>
-                          </g></svg
-                      ></a>
-                    </div>
-                    <div class="w-commerce-commercecartformwrapper">
-                      <form
-                        style="display: none"
-                        class="w-commerce-commercecartform"
-                        data-node-type="commerce-cart-form"
-                      >
-                        <script
-                          type="text/x-wf-template"
-                          id="wf-template-8f823880-3b4e-b994-01bc-8eca29fda36a"
-                        >
-                          %3Cdiv%20class%3D%22w-commerce-commercecartitem%22%3E%3Cimg%20data-wf-bindings%3D%22%255B%257B%2522src%2522%253A%257B%2522type%2522%253A%2522ImageRef%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.sku.f_main_image_4dr%2522%257D%257D%255D%22%20src%3D%22%22%20alt%3D%22%22%20class%3D%22w-commerce-commercecartitemimage%20w-dyn-bind-empty%22%2F%3E%3Cdiv%20class%3D%22w-commerce-commercecartiteminfo%22%3E%3Cdiv%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522PlainText%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_name_%2522%257D%257D%255D%22%20class%3D%22w-commerce-commercecartproductname%20cart-title-products%20w-dyn-bind-empty%22%3E%3C%2Fdiv%3E%3Cdiv%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522CommercePrice%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522price%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.price%2522%257D%257D%255D%22%20class%3D%22products-price%22%3E%24%C2%A00.00%C2%A0USD%3C%2Fdiv%3E%3Cscript%20type%3D%22text%2Fx-wf-template%22%20id%3D%22wf-template-8f823880-3b4e-b994-01bc-8eca29fda370%22%3E%253Cli%253E%253Cspan%2520data-wf-bindings%253D%2522%25255B%25257B%252522innerHTML%252522%25253A%25257B%252522type%252522%25253A%252522PlainText%252522%25252C%252522filter%252522%25253A%25257B%252522type%252522%25253A%252522identity%252522%25252C%252522params%252522%25253A%25255B%25255D%25257D%25252C%252522dataPath%252522%25253A%252522database.commerceOrder.userItems%25255B%25255D.product.f_sku_properties_3dr%25255B%25255D.name%252522%25257D%25257D%25255D%2522%2520class%253D%2522w-dyn-bind-empty%2522%253E%253C%252Fspan%253E%253Cspan%253E%253A%2520%253C%252Fspan%253E%253Cspan%2520data-wf-bindings%253D%2522%25255B%25257B%252522innerHTML%252522%25253A%25257B%252522type%252522%25253A%252522CommercePropValues%252522%25252C%252522filter%252522%25253A%25257B%252522type%252522%25253A%252522identity%252522%25252C%252522params%252522%25253A%25255B%25255D%25257D%25252C%252522dataPath%252522%25253A%252522database.commerceOrder.userItems%25255B%25255D.product.f_sku_properties_3dr%25255B%25255D%252522%25257D%25257D%25255D%2522%2520class%253D%2522w-dyn-bind-empty%2522%253E%253C%252Fspan%253E%253C%252Fli%253E%3C%2Fscript%3E%3Cul%20data-wf-bindings%3D%22%255B%257B%2522optionSets%2522%253A%257B%2522type%2522%253A%2522CommercePropTable%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%5B%5D%2522%257D%257D%252C%257B%2522optionValues%2522%253A%257B%2522type%2522%253A%2522CommercePropValues%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.sku.f_sku_values_3dr%2522%257D%257D%255D%22%20class%3D%22w-commerce-commercecartoptionlist%22%20data-wf-collection%3D%22database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%22%20data-wf-template-id%3D%22wf-template-8f823880-3b4e-b994-01bc-8eca29fda370%22%3E%3Cli%3E%3Cspan%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522PlainText%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%255B%255D.name%2522%257D%257D%255D%22%20class%3D%22w-dyn-bind-empty%22%3E%3C%2Fspan%3E%3Cspan%3E%3A%20%3C%2Fspan%3E%3Cspan%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522CommercePropValues%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%255B%255D%2522%257D%257D%255D%22%20class%3D%22w-dyn-bind-empty%22%3E%3C%2Fspan%3E%3C%2Fli%3E%3C%2Ful%3E%3Ca%20href%3D%22%23%22%20role%3D%22button%22%20data-wf-bindings%3D%22%255B%257B%2522data-commerce-sku-id%2522%253A%257B%2522type%2522%253A%2522ItemRef%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.sku.id%2522%257D%257D%255D%22%20class%3D%22w-inline-block%22%20data-wf-cart-action%3D%22remove-item%22%20data-commerce-sku-id%3D%22%22%20aria-label%3D%22Remove%20item%20from%20cart%22%3E%3Cdiv%3ERemove%3C%2Fdiv%3E%3C%2Fa%3E%3C%2Fdiv%3E%3Cinput%20aria-label%3D%22Update%20quantity%22%20data-wf-bindings%3D%22%255B%257B%2522value%2522%253A%257B%2522type%2522%253A%2522Number%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522numberPrecision%2522%252C%2522params%2522%253A%255B%25220%2522%252C%2522numberPrecision%2522%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.count%2522%257D%257D%252C%257B%2522data-commerce-sku-id%2522%253A%257B%2522type%2522%253A%2522ItemRef%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.sku.id%2522%257D%257D%255D%22%20data-wf-conditions%3D%22%257B%2522condition%2522%253A%257B%2522fields%2522%253A%257B%2522product%253Aec-product-type%2522%253A%257B%2522ne%2522%253A%2522e348fd487d0102946c9179d2a94bb613%2522%252C%2522type%2522%253A%2522Option%2522%257D%257D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D%2522%257D%22%20class%3D%22w-commerce-commercecartquantity%20cart-quantity%22%20required%3D%22%22%20pattern%3D%22%5E%5B0-9%5D%2B%24%22%20inputMode%3D%22numeric%22%20type%3D%22number%22%20name%3D%22quantity%22%20autoComplete%3D%22off%22%20data-wf-cart-action%3D%22update-item-quantity%22%20data-commerce-sku-id%3D%22%22%20value%3D%221%22%2F%3E%3C%2Fdiv%3E
-                        </script>
-                        <div
-                          class="w-commerce-commercecartlist"
-                          data-wf-collection="database.commerceOrder.userItems"
-                          data-wf-template-id="wf-template-8f823880-3b4e-b994-01bc-8eca29fda36a"
-                        >
-                          <div class="w-commerce-commercecartitem">
-                            <img
-                              data-wf-bindings="%5B%7B%22src%22%3A%7B%22type%22%3A%22ImageRef%22%2C%22filter%22%3A%7B%22type%22%3A%22identity%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.sku.f_main_image_4dr%22%7D%7D%5D"
-                              src=""
-                              alt=""
-                              class="w-commerce-commercecartitemimage w-dyn-bind-empty"
-                            />
-                            <div class="w-commerce-commercecartiteminfo">
-                              <div
-                                data-wf-bindings="%5B%7B%22innerHTML%22%3A%7B%22type%22%3A%22PlainText%22%2C%22filter%22%3A%7B%22type%22%3A%22identity%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.product.f_name_%22%7D%7D%5D"
-                                class="w-commerce-commercecartproductname cart-title-products w-dyn-bind-empty"
-                              ></div>
-                              <div
-                                data-wf-bindings="%5B%7B%22innerHTML%22%3A%7B%22type%22%3A%22CommercePrice%22%2C%22filter%22%3A%7B%22type%22%3A%22price%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.price%22%7D%7D%5D"
-                                class="products-price"
-                              >
-                                $ 0.00 USD
-                              </div>
-                              <script
-                                type="text/x-wf-template"
-                                id="wf-template-8f823880-3b4e-b994-01bc-8eca29fda370"
-                              >
-                                %3Cli%3E%3Cspan%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522PlainText%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%255B%255D.name%2522%257D%257D%255D%22%20class%3D%22w-dyn-bind-empty%22%3E%3C%2Fspan%3E%3Cspan%3E%3A%20%3C%2Fspan%3E%3Cspan%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522CommercePropValues%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%255B%255D%2522%257D%257D%255D%22%20class%3D%22w-dyn-bind-empty%22%3E%3C%2Fspan%3E%3C%2Fli%3E
-                              </script>
-                              <ul
-                                data-wf-bindings="%5B%7B%22optionSets%22%3A%7B%22type%22%3A%22CommercePropTable%22%2C%22filter%22%3A%7B%22type%22%3A%22identity%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.product.f_sku_properties_3dr[]%22%7D%7D%2C%7B%22optionValues%22%3A%7B%22type%22%3A%22CommercePropValues%22%2C%22filter%22%3A%7B%22type%22%3A%22identity%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.sku.f_sku_values_3dr%22%7D%7D%5D"
-                                class="w-commerce-commercecartoptionlist"
-                                data-wf-collection="database.commerceOrder.userItems%5B%5D.product.f_sku_properties_3dr"
-                                data-wf-template-id="wf-template-8f823880-3b4e-b994-01bc-8eca29fda370"
-                              >
-                                <li>
-                                  <span
-                                    data-wf-bindings="%5B%7B%22innerHTML%22%3A%7B%22type%22%3A%22PlainText%22%2C%22filter%22%3A%7B%22type%22%3A%22identity%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.product.f_sku_properties_3dr%5B%5D.name%22%7D%7D%5D"
-                                    class="w-dyn-bind-empty"
-                                  ></span
-                                  ><span>: </span
-                                  ><span
-                                    data-wf-bindings="%5B%7B%22innerHTML%22%3A%7B%22type%22%3A%22CommercePropValues%22%2C%22filter%22%3A%7B%22type%22%3A%22identity%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.product.f_sku_properties_3dr%5B%5D%22%7D%7D%5D"
-                                    class="w-dyn-bind-empty"
-                                  ></span>
-                                </li>
-                              </ul>
-                              <a
-                                href="#"
-                                role="button"
-                                data-wf-bindings="%5B%7B%22data-commerce-sku-id%22%3A%7B%22type%22%3A%22ItemRef%22%2C%22filter%22%3A%7B%22type%22%3A%22identity%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.sku.id%22%7D%7D%5D"
-                                class="w-inline-block"
-                                data-wf-cart-action="remove-item"
-                                data-commerce-sku-id=""
-                                aria-label="Remove item from cart"
-                                ><div>Remove</div></a
-                              >
-                            </div>
-                            <input
-                              aria-label="Update quantity"
-                              data-wf-bindings="%5B%7B%22value%22%3A%7B%22type%22%3A%22Number%22%2C%22filter%22%3A%7B%22type%22%3A%22numberPrecision%22%2C%22params%22%3A%5B%220%22%2C%22numberPrecision%22%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.count%22%7D%7D%2C%7B%22data-commerce-sku-id%22%3A%7B%22type%22%3A%22ItemRef%22%2C%22filter%22%3A%7B%22type%22%3A%22identity%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.sku.id%22%7D%7D%5D"
-                              data-wf-conditions="%7B%22condition%22%3A%7B%22fields%22%3A%7B%22product%3Aec-product-type%22%3A%7B%22ne%22%3A%22e348fd487d0102946c9179d2a94bb613%22%2C%22type%22%3A%22Option%22%7D%7D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D%22%7D"
-                              class="w-commerce-commercecartquantity cart-quantity"
-                              required=""
-                              pattern="^[0-9]+$"
-                              inputmode="numeric"
-                              type="number"
-                              name="quantity"
-                              autocomplete="off"
-                              data-wf-cart-action="update-item-quantity"
-                              data-commerce-sku-id=""
-                              value="1"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          class="w-commerce-commercecartfooter cart-footer-2"
-                        >
-                          <div
-                            aria-atomic="true"
-                            aria-live="polite"
-                            class="w-commerce-commercecartlineitem cart-line-item-2"
-                          >
-                            <div>Subtotal</div>
-                            <div
-                              data-wf-bindings="%5B%7B%22innerHTML%22%3A%7B%22type%22%3A%22CommercePrice%22%2C%22filter%22%3A%7B%22type%22%3A%22price%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.subtotal%22%7D%7D%5D"
-                              class="w-commerce-commercecartordervalue"
-                            ></div>
-                          </div>
-                          <div>
-                            <div
-                              data-node-type="commerce-cart-quick-checkout-actions"
-                              style="display: none"
-                            >
-                              <a
-                                data-node-type="commerce-cart-apple-pay-button"
-                                role="button"
-                                aria-label="Apple Pay"
-                                aria-haspopup="dialog"
-                                style="
-                                  background-image: -webkit-named-image(
-                                    apple-pay-logo-white
-                                  );
-                                  background-size: 100% 50%;
-                                  background-position: 50% 50%;
-                                  background-repeat: no-repeat;
-                                "
-                                class="w-commerce-commercecartapplepaybutton"
-                                tabindex="0"
-                                ><div></div></a
-                              ><a
-                                data-node-type="commerce-cart-quick-checkout-button"
-                                role="button"
-                                tabindex="0"
-                                aria-haspopup="dialog"
-                                style="display: none"
-                                class="w-commerce-commercecartquickcheckoutbutton"
-                                ><svg
-                                  class="w-commerce-commercequickcheckoutgoogleicon"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                                  width="16"
-                                  height="16"
-                                  viewBox="0 0 16 16"
-                                >
-                                  <defs>
-                                    <polygon
-                                      id="google-mark-a"
-                                      points="0 .329 3.494 .329 3.494 7.649 0 7.649"
-                                    ></polygon>
-                                    <polygon
-                                      id="google-mark-c"
-                                      points=".894 0 13.169 0 13.169 6.443 .894 6.443"
-                                    ></polygon>
-                                  </defs>
-                                  <g fill="none" fill-rule="evenodd">
-                                    <path
-                                      fill="#4285F4"
-                                      d="M10.5967,12.0469 L10.5967,14.0649 L13.1167,14.0649 C14.6047,12.6759 15.4577,10.6209 15.4577,8.1779 C15.4577,7.6339 15.4137,7.0889 15.3257,6.5559 L7.8887,6.5559 L7.8887,9.6329 L12.1507,9.6329 C11.9767,10.6119 11.4147,11.4899 10.5967,12.0469"
-                                    ></path>
-                                    <path
-                                      fill="#34A853"
-                                      d="M7.8887,16 C10.0137,16 11.8107,15.289 13.1147,14.067 C13.1147,14.066 13.1157,14.065 13.1167,14.064 L10.5967,12.047 C10.5877,12.053 10.5807,12.061 10.5727,12.067 C9.8607,12.556 8.9507,12.833 7.8887,12.833 C5.8577,12.833 4.1387,11.457 3.4937,9.605 L0.8747,9.605 L0.8747,11.648 C2.2197,14.319 4.9287,16 7.8887,16"
-                                    ></path>
-                                    <g transform="translate(0 4)">
-                                      <mask id="google-mark-b" fill="#fff">
-                                        <use xlink:href="#google-mark-a"></use>
-                                      </mask>
-                                      <path
-                                        fill="#FBBC04"
-                                        d="M3.4639,5.5337 C3.1369,4.5477 3.1359,3.4727 3.4609,2.4757 L3.4639,2.4777 C3.4679,2.4657 3.4749,2.4547 3.4789,2.4427 L3.4939,0.3287 L0.8939,0.3287 C0.8799,0.3577 0.8599,0.3827 0.8459,0.4117 C-0.2821,2.6667 -0.2821,5.3337 0.8459,7.5887 L0.8459,7.5997 C0.8549,7.6167 0.8659,7.6317 0.8749,7.6487 L3.4939,5.6057 C3.4849,5.5807 3.4729,5.5587 3.4639,5.5337"
-                                        mask="url(#google-mark-b)"
-                                      ></path>
-                                    </g>
-                                    <mask id="google-mark-d" fill="#fff">
-                                      <use xlink:href="#google-mark-c"></use>
-                                    </mask>
-                                    <path
-                                      fill="#EA4335"
-                                      d="M0.894,4.3291 L3.478,6.4431 C4.113,4.5611 5.843,3.1671 7.889,3.1671 C9.018,3.1451 10.102,3.5781 10.912,4.3671 L13.169,2.0781 C11.733,0.7231 9.85,-0.0219 7.889,0.0001 C4.941,0.0001 2.245,1.6791 0.894,4.3291"
-                                      mask="url(#google-mark-d)"
-                                    ></path>
-                                  </g></svg
-                                ><svg
-                                  class="w-commerce-commercequickcheckoutmicrosofticon"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  width="16"
-                                  height="16"
-                                  viewBox="0 0 16 16"
-                                >
-                                  <g fill="none" fill-rule="evenodd">
-                                    <polygon
-                                      fill="#F05022"
-                                      points="7 7 1 7 1 1 7 1"
-                                    ></polygon>
-                                    <polygon
-                                      fill="#7DB902"
-                                      points="15 7 9 7 9 1 15 1"
-                                    ></polygon>
-                                    <polygon
-                                      fill="#00A4EE"
-                                      points="7 15 1 15 1 9 7 9"
-                                    ></polygon>
-                                    <polygon
-                                      fill="#FFB700"
-                                      points="15 15 9 15 9 9 15 9"
-                                    ></polygon>
-                                  </g>
-                                </svg>
-                                <div>Pay with browser.</div></a
-                              >
-                            </div>
-                            <a
-                              href="/checkout"
-                              value="Continue to Checkout"
-                              class="w-commerce-commercecartcheckoutbutton primary-button"
-                              data-loading-text="Hang Tight..."
-                              data-node-type="cart-checkout-button"
-                              >Continue to Checkout</a
-                            >
-                          </div>
-                        </div>
-                      </form>
-                      <div class="w-commerce-commercecartemptystate">
-                        <div aria-label="This cart is empty" aria-live="polite">
-                          No items found.
-                        </div>
-                      </div>
-                      <div
-                        aria-live="assertive"
-                        style="display: none"
-                        data-node-type="commerce-cart-error"
-                        class="w-commerce-commercecarterrorstate"
-                      >
-                        <div
-                          class="w-cart-error-msg"
-                          data-w-cart-quantity-error="Product is not available in this quantity."
-                          data-w-cart-general-error="Something went wrong when adding this item to the cart."
-                          data-w-cart-checkout-error="Checkout is disabled on this site."
-                          data-w-cart-cart_order_min-error="The order minimum was not met. Add more items to your cart to continue."
-                          data-w-cart-subscription_error-error="Before you purchase, please use your email invite to verify your address so we can send order updates."
-                        >
-                          Product is not available in this quantity.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
               <div class="humburg-menu w-nav-button">
                 <div class="top-line"></div>
                 <div class="middle-line"></div>
@@ -1038,23 +526,22 @@
               style="opacity: 0"
               class="hero-title"
             >
-              Power Your Sales with Smarter Management Solution
+              YOUR REAL ESTATE ALLY
             </h1>
             <p
               data-w-id="b1dc5807-15d1-701e-4db4-a1f514ed1c9a"
               style="opacity: 0"
               class="hero-paragraph"
             >
-              Effortlessly send, receive, and manage payments with our secure,
-              all-in-one platform. Enjoy seamless transactions.
+              Real Estate Work Overload? Let Us Handle It! We rescue agents from paperwork chaos, missed deadlines, and "I swear I uploaded that listing!" moments with our tech-driven virtual assistance.
             </p>
             <div class="hero-button hero">
-              <a href="/about-us" class="primary-button w-button">Learn More</a
-              ><a href="/contact-us" class="secondary-button w-button"
-                >Contact Us</a
-              >
+            <a href="/about-us" class="primary-button w-button">Learn More</a>
+              <a href="/contact-us" class="secondary-button w-button">Book Free Consultation</a>
             </div>
           </div>
+
+          
           <div class="hero-image">
             <div
               data-w-id="de0f82c1-69cc-2388-3379-fcdd04248090"
@@ -1100,6 +587,7 @@
               </div>
             </div>
           </div>
+            
         </section>
       </div>
     </section>
@@ -1115,72 +603,35 @@
                 <img
                   loading="lazy"
                   src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/680b483f457a73df9216850d_d3f1824bb7e7c9ad0a73e96669005150_Logo-1.svg"
-                  alt="Logo"
+                  alt="FlexMLS logo"
                 />
               </div>
               <div class="logo-item">
                 <img
                   loading="lazy"
                   src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/680b4851a2e9e7b44216059d_14f9f6cfa89a37cfb2465ef138c5e612_Logo-2.svg"
-                  alt="Logo"
+                  alt="KVCore logo"
                 />
               </div>
               <div class="logo-item">
                 <img
                   loading="lazy"
                   src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/680b48603c63d09d8a08d8be_e26dd2a7aced37f44a9c07a5a44acb28_Logo-3.svg"
-                  alt="Logo"
+                  alt="DocuSign logo"
                 />
               </div>
               <div class="logo-item">
                 <img
                   loading="lazy"
                   src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/680b486d158e6c535e932b16_c8f54090def0a50f68353f979fd1318b_Logo-4.svg"
-                  alt="Logo"
+                  alt="Canva logo"
                 />
               </div>
               <div class="logo-item">
                 <img
                   loading="lazy"
                   src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/680b48796015ac6b1125bb8c_6bed0cf37ff743654195f4690e859209_Logo-5.svg"
-                  alt="Logo"
-                />
-              </div>
-            </div>
-            <div class="logo-wrapper">
-              <div class="logo-item">
-                <img
-                  loading="lazy"
-                  src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/680b483f457a73df9216850d_d3f1824bb7e7c9ad0a73e96669005150_Logo-1.svg"
-                  alt="Logo"
-                />
-              </div>
-              <div class="logo-item">
-                <img
-                  loading="lazy"
-                  src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/680b4851a2e9e7b44216059d_14f9f6cfa89a37cfb2465ef138c5e612_Logo-2.svg"
-                  alt="Logo"
-                />
-              </div>
-              <div class="logo-item">
-                <img
-                  loading="lazy"
-                  src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/680b48603c63d09d8a08d8be_e26dd2a7aced37f44a9c07a5a44acb28_Logo-3.svg"
-                  alt="Logo"
-                />
-              </div>
-              <div class="logo-item">
-                <img
-                  loading="lazy"
-                  src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/680b486d158e6c535e932b16_c8f54090def0a50f68353f979fd1318b_Logo-4.svg"
-                  alt="Logo"
-                />
-              </div>
-              <div class="logo-item">
-                <img
-                  loading="lazy"
-                  src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/680b48796015ac6b1125bb8c_6bed0cf37ff743654195f4690e859209_Logo-5.svg"
-                  alt="Logo"
+                  alt="Zillow logo"
                 />
               </div>
             </div>
@@ -1191,8 +642,8 @@
     <section class="innovative-section">
       <div class="w-layout-blockcontainer container w-container">
         <section class="section-heading">
-          <div class="tag-block"><p class="section-tag">Features</p></div>
-          <h2 class="section-title center width">Amazing Features</h2>
+          <div class="tag-block"><p class="section-tag">About us</p></div>
+          <h2 class="section-title center width">Your complete real estate support system</h2>
         </section>
         <div class="innovative-wrap">
           <div class="innovative-items">
@@ -1203,19 +654,10 @@
                 alt="Icon"
               />
             </div>
-            <h3 class="feature-title">Transaction Management</h3>
+            <h3 class="feature-title">Pre-listing coordination</h3>
             <p class="feature-paragraph">
-              The payment gateway offers real-time tracking of all transactions
-              to ensure transparency.
+              We take sad, dusty listings and turn them into scroll-stoppers with professional photos, videos and descriptions.
             </p>
-            <img
-              src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/67fc86815b95201937c895e4_785c6fc99d61a4f836ecfaac02914672_Innovative%201.svg"
-              loading="lazy"
-              style="opacity: 0"
-              data-w-id="9b185e3f-ca63-a0e5-a1e6-0a2cf76d29c2"
-              alt="Innovative Image"
-              class="innovative-image"
-            />
           </div>
           <div class="innovative-items">
             <div class="icon">
@@ -1225,19 +667,10 @@
                 alt="Icon"
               />
             </div>
-            <h3 class="feature-title">Payment Options</h3>
+            <h3 class="feature-title">Listing Optimization</h3>
             <p class="feature-paragraph">
-              Seamlessly supports multiple payment methods, providing
-              flexibility for users Payment Options.
+              We enhance your listings with SEO-friendly descriptions, strategic keywords, and platform-specific formatting to maximize visibility.
             </p>
-            <img
-              src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/67fc86d08358ea63e39ba2c1_e1f611982e142d9dd57e184f1b344d3c_Innovative%202.svg"
-              loading="lazy"
-              style="opacity: 0"
-              data-w-id="9b185e3f-ca63-a0e5-a1e6-0a2cf76d29ca"
-              alt="Innovative Image"
-              class="innovative-image"
-            />
           </div>
           <div class="innovative-items">
             <div class="icon">
@@ -1247,19 +680,25 @@
                 alt="Icon"
               />
             </div>
-            <h3 class="feature-title">Business Insights</h3>
+            <h3 class="feature-title">Transaction Coordination</h3>
             <p class="feature-paragraph">
-              Visual analytics for revenue streams and consumer behavior
-              Innovative Payment Business Insights.
+              We track, chase, organize and follow up - so you can actually sell homes instead of swimming in PDFs.
             </p>
-            <img
-              src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/67fc86dd8c039dfb9bfe13c5_c31b9ffe545b2912346f943b22c71430_Innovative%203.svg"
-              loading="lazy"
-              style="opacity: 0"
-              data-w-id="9b185e3f-ca63-a0e5-a1e6-0a2cf76d29d2"
-              alt="Innovative Image"
-              class="innovative-image"
-            />
+          </div>
+          
+          <div class="innovative-items">
+            <div class="icon">
+              <img
+                src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/681c59afd76752e0d23afe49_87f3ddd438a1953dd32b817f81ecb2a2_Business%20Insights.svg"
+                loading="lazy"
+                alt="Icon"
+              />
+            </div>
+            
+            <h3 class="feature-title">Social Media Management</h3>
+            <p class="feature-paragraph">
+              Forget ghosting your followers - we'll keep your feed alive with "Just Listed" graphics, reels, and promos.
+            </p>
           </div>
         </div>
       </div>
@@ -1267,8 +706,8 @@
     <section class="financial-section">
       <div class="w-layout-blockcontainer container w-container">
         <section class="section-heading">
-          <div class="tag-block"><p class="section-tag">Facts</p></div>
-          <h2 class="section-title center width">Comprehensive Financial</h2>
+          <div class="tag-block"><p class="section-tag">Featured</p></div>
+          <h2 class="section-title center width">Everything from contract to close</h2>
         </section>
         <div class="financial-wrap">
           <div
@@ -1285,23 +724,23 @@
                 https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/682471a473a9c239cda0a2d0_Financial%20Image-p-1080.jpg 1080w,
                 https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/682471a473a9c239cda0a2d0_Financial%20Image.jpg        1692w
               "
-              alt="Financial Image"
+              alt="Transaction process"
               class="section-image"
             />
             <div style="display: block" class="on-scroll"></div>
           </div>
           <div class="financial-text-block">
             <div>
-              <div class="financial-title">520+</div>
+              <div class="financial-title">100%</div>
               <p class="financial-sub-text">
-                Effortless Transactions with Multiple Payment Methods.
+                We politely harass people via email so you don't have to
               </p>
             </div>
             <div>
               <img
                 src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/682473443989f5f86bc98abc_User%20Image.svg"
                 loading="lazy"
-                alt="User Image"
+                alt="Organized docs"
               />
             </div>
           </div>
@@ -1320,19 +759,19 @@
           >
             <div class="tabs-menu w-tab-menu">
               <a data-w-tab="Tab 1" class="tab-button w-inline-block w-tab-link"
-                ><div>Secure Payments</div></a
+                ><div>Transaction Coordination</div></a
               ><a
                 data-w-tab="Tab 2"
                 class="tab-button w-inline-block w-tab-link w--current"
-                ><div>Multi-Currency Support</div></a
+                ><div>Listing Marketing</div></a
               ><a
                 data-w-tab="Tab 3"
                 class="tab-button w-inline-block w-tab-link"
-                ><div>Fraud Detection</div></a
+                ><div>Social Media</div></a
               ><a
                 data-w-tab="Tab 4"
                 class="tab-button w-inline-block w-tab-link"
-                ><div>Easy Integration</div></a
+                ><div>Website Design</div></a
               >
             </div>
             <div class="tabs-content w-tab-content">
@@ -1340,12 +779,10 @@
                 <div class="tabs-content-wrap">
                   <div class="tabs-text">
                     <h2 class="section-title left">
-                      Fast, Secure Payments for Everyone.
+                      Complete Transaction Support
                     </h2>
                     <p class="simplify-paragraph tab-section">
-                      Experience the highest level of security with our payment
-                      solutions. Our platform ensures that every transaction is
-                      protected with advanced encryption.
+                      We handle everything from contract to close so you can focus on your clients. Our team tracks deadlines, organizes documents, and ensures smooth transactions from start to finish.
                     </p>
                     <a href="/contact-us" class="secondary-button w-button"
                       >Learn More</a
@@ -1355,7 +792,7 @@
                     <img
                       src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/682478175c424024f1126181_Secure%20Payments.svg"
                       loading="lazy"
-                      alt="Tab Image"
+                      alt="Transaction coordination"
                     />
                   </div>
                 </div>
@@ -1364,47 +801,43 @@
                 <div class="tabs-content-wrap">
                   <div class="tabs-text">
                     <h2 class="section-title left">
-                      Accept Payments in Multiple Currencies.
+                      Listing That Actually Get Clicks
                     </h2>
                     <p class="simplify-paragraph tab-section">
-                      Our platform automatically handles currency conversions
-                      with real-time exchange rates, ensuring accurate and
-                      transparent transactions. Empower your business to
-                      operate.
+                      We create MLS descriptions that sell the home, listing videos that captivate buyers, and enhanced photos that showcase your properties. Our marketing solutions make your listings stand out.
                     </p>
                     <a href="/contact-us" class="secondary-button w-button"
-                      >Learn More</a
+                      >View Portfolio</a
                     >
                   </div>
                   <div class="tab-image">
                     <img
                       src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/68247a5080e1eca720d1f5aa_Multi-Currency%20Support.svg"
                       loading="lazy"
-                      alt="Tab Image"
+                      alt="Listing marketing"
                     />
                   </div>
                 </div>
               </div>
+              
               <div data-w-tab="Tab 3" class="w-tab-pane">
                 <div class="tabs-content-wrap">
                   <div class="tabs-text">
                     <h2 class="section-title left">
-                      Real-Time Fraud Detection and Prevention.
+                      Social Media That Doesn't Suck
                     </h2>
                     <p class="simplify-paragraph tab-section">
-                      Our intelligent algorithms analyze transaction patterns,
-                      flagging potential risks instantly to ensure your payments
-                      remain secure. Experience peace of mind knowing.
+                      We keep your social media active with "Just Listed" graphics, open house promos, and personal branding content. Never ghost your followers again with our managed social media services.
                     </p>
                     <a href="/contact-us" class="secondary-button w-button"
-                      >Learn More</a
+                      >See Examples</a
                     >
                   </div>
                   <div class="tab-image">
                     <img
                       src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/68247a728108a7ed1ae5d8b7_3536f642063e5a63cd0defc347027be5_Fraud%20Detection.svg"
                       loading="lazy"
-                      alt="Tab Image"
+                      alt="Social media management"
                     />
                   </div>
                 </div>
@@ -1413,22 +846,20 @@
                 <div class="tabs-content-wrap">
                   <div class="tabs-text">
                     <h2 class="section-title left">
-                      Seamless Integration for Effortless Setup
+                      Professional Website Design
                     </h2>
                     <p class="simplify-paragraph tab-section">
-                      Our platform offers seamless integration, ensuring that
-                      you can quickly and effortlessly set up and deploy the
-                      system. With minimal technical overhead, the integration.
+                      If your website still looks like it's stuck in 2015, we'll fix that. We create fast, mobile-friendly websites that serve as your digital storefront and convert visitors into leads.
                     </p>
                     <a href="/contact-us" class="secondary-button w-button"
-                      >Learn More</a
+                      >View Samples</a
                     >
                   </div>
                   <div class="tab-image">
                     <img
                       src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/68247af79d83000f9aef3ba9_Easy%20Integration.svg"
                       loading="lazy"
-                      alt="Tab Image"
+                      alt="Website design"
                     />
                   </div>
                 </div>
@@ -1441,15 +872,11 @@
     <section class="feature-section">
       <div class="w-layout-blockcontainer container w-container">
         <section class="section-heading">
-          <div class="tag-block"><p class="section-tag">Trusted</p></div>
-          <h2 class="section-title center width">Comprehensive Financial</h2>
+          <div class="tag-block"><p class="section-tag">Services</p></div>
+          <h2 class="section-title center width">Comprehensive Real Estate Support</h2>
         </section>
         <div class="feature-wrap">
-          <div
-            data-w-id="78e5c939-de30-a610-d5d1-37ea61530172"
-            style="opacity: 0"
-            class="feature-items"
-          >
+          <div class="feature-items">
             <div class="icon">
               <img
                 src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/67f8e83a9453b32510833ff3_ceca77f56a55f500d475255337c3ebb1_Icon%201.svg"
@@ -1457,10 +884,9 @@
                 alt="Icon"
               />
             </div>
-            <h3 class="feature-title">Fast &amp; Secure Payments</h3>
+            <h3 class="feature-title">Transaction Coordination</h3>
             <p class="feature-paragraph">
-              Process transactions quickly and securely with seamless payment
-              solutions for businesses of all sizes.
+              We track, chase, organize and follow up - so you can actually sell homes instead of swimming in PDFs.
             </p>
           </div>
           <div class="feature-items">
@@ -1471,13 +897,13 @@
                 alt="Icon"
               />
             </div>
-            <h3 class="feature-title">Multi-Currency Support</h3>
+            <h3 class="feature-title">Listing Marketing & Media</h3>
             <p class="feature-paragraph">
-              Expand your business globally with support for multiple currencies
-              and automatic currency conversion.
+              Professional photography, virtual tours, MLS optimization, and scroll-stopping listing presentations to make your properties shine.
             </p>
           </div>
-          <div
+
+         <div
             data-w-id="eda1ede6-66cf-be7e-9580-2ec176601150"
             style="opacity: 0"
             class="feature-items image"
@@ -1493,6 +919,8 @@
               alt="Icon"
             />
           </div>
+
+          
           <div
             data-w-id="8bde2d26-3681-ba45-9f02-1fa7f81ae789"
             style="opacity: 0"
@@ -1517,17 +945,14 @@
                 alt="Icon"
               />
             </div>
-            <h3 class="feature-title">Recurring Payments</h3>
+            
+            <h3 class="feature-title">Social Media Management</h3>
             <p class="feature-paragraph">
-              Automate subscription payments with secure, hassle-free recurring
-              billing for seamless transactions.
+              Regular posting, "Just Listed" graphics, open house promos, and personal branding content for Facebook & Instagram.
             </p>
           </div>
-          <div
-            data-w-id="01e667af-1fdc-627b-6a90-8a8c1c176bbb"
-            style="opacity: 0"
-            class="feature-items"
-          >
+          
+          <div class="feature-items">
             <div class="icon">
               <img
                 src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/67f8ea8969aaf6d70aa87a59_cd976aa19fd6c4fbc9416b31b7f37a33_Icon%206.svg"
@@ -1535,57 +960,29 @@
                 alt="Icon"
               />
             </div>
-            <h3 class="feature-title">Live Payment Insights</h3>
+            <h3 class="feature-title">Website Design & SEO</h3>
             <p class="feature-paragraph">
-              Track transactions in real time with detailed reports and insights
-              for smarter financial decisions.
+              Professional websites optimized for lead generation and search engine visibility.
             </p>
           </div>
-        </div>
-      </div>
-    </section>
-    <section class="empowering-section">
-      <div class="w-layout-blockcontainer container w-container">
-        <section class="section-heading"></section>
-        <div class="manage-wrap">
-          <div class="process-text">
-            <h2 class="section-title left white">
-              Empowering businesses through innovation
-            </h2>
-            <p class="simplify-paragraph white mb40">
-              We empower businesses by combining innovative technology with
-              customized solutions that drive efficiency, growth, and success.
+          
+          <div class="feature-items">
+            <div class="icon">
+              <img
+                src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/67f8ea8969aaf6d70aa87a59_cd976aa19fd6c4fbc9416b31b7f37a33_Icon%206.svg"
+                loading="lazy"
+                alt="Icon"
+              />
+            </div>
+            <h3 class="feature-title">100% Dedicated Support</h3>
+            <p class="feature-paragraph">
+              Your personal real estate assistant handling the details so you can focus on clients.
             </p>
-            <a href="/contact-us" class="secondary-button w-button"
-              >Contact Us</a
-            >
-            <div class="divider"></div>
-            <div class="empowering-point">Seamless transaction processing</div>
-            <div class="empowering-point center">
-              Leverage analytics to make informed decisions and drive success.
-            </div>
-            <div class="empowering-point">
-              Custom SaaS platforms designed to grow with your business.
-            </div>
           </div>
-          <div
-            data-w-id="5c4962b8-4a8c-4376-583c-f784e83320c5"
-            class="process-image"
-          >
-            <img
-              src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/68247da954a5764932d94cf8_User%20Activity%20Image.jpg"
-              loading="lazy"
-              sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-              srcset="
-                https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/68247da954a5764932d94cf8_User%20Activity%20Image-p-500.jpg   500w,
-                https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/68247da954a5764932d94cf8_User%20Activity%20Image-p-800.jpg   800w,
-                https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/68247da954a5764932d94cf8_User%20Activity%20Image-p-1080.jpg 1080w,
-                https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/68247da954a5764932d94cf8_User%20Activity%20Image.jpg        1246w
-              "
-              alt="Process Image"
-              class="section-image"
-            />
-            <div style="display: block" class="on-scroll"></div>
+          
+          <div class="feature-items">
+            <a href="/services" class="primary-button w-button">See All Services</a>
+            <a href="/pricing" class="secondary-button w-button">View Packages</a>
           </div>
         </div>
       </div>
@@ -1593,8 +990,8 @@
     <section class="testimonial-section">
       <div class="w-layout-blockcontainer container w-container">
         <section class="section-heading">
-          <div class="tag-block"><p class="section-tag">Testimonials</p></div>
-          <h2 class="section-title center width">Clients Review</h2>
+          <div class="tag-block"><p class="section-tag">Testimonial</p></div>
+          <h2 class="section-title center width">What Our Clients Say</h2>
         </section>
         <div class="testimonial-wrap">
           <div class="w-dyn-list">
@@ -1608,23 +1005,19 @@
                       alt="Quote Icon"
                       class="quote-icon"
                     />
-                    <h4 class="testimonial-title">Top Payment Gateways</h4>
                     <p class="testimonial-paragraph">
-                      Choosing the right payment gateway is crucial for your
-                      business. In this comprehensive review, we break down the
-                      pros, cons, features, and pricing of top platforms like
-                      Stripe.
+                      AmigoNex saved my business! As a solo agent, I was drowning in paperwork until they took over my transaction coordination. Now I can focus on what I do best - selling homes.
                     </p>
                     <div class="user">
-                      <div class="user-name">Cameron Williamson</div>
-                      <div class="user-post">President of Sales</div>
+                      <div class="user-name">Sarah Johnson</div>
+                      <div class="user-post">Realtor at Keller Williams</div>
                     </div>
                   </div>
                   <div class="user-image">
                     <img
                       src="https://cdn.prod.website-files.com/647c0aaa6280c5b1cbd48ed1/682480182eb2c5e2b958a65b_Review%201.jpg"
                       loading="lazy"
-                      alt="User Image"
+                      alt="Sarah Johnson"
                       class="quote-icon"
                     />
                   </div>
@@ -1639,22 +1032,46 @@
                       alt="Quote Icon"
                       class="quote-icon"
                     />
-                    <h4 class="testimonial-title">Best Payment Solutions</h4>
                     <p class="testimonial-paragraph">
-                      Explore detailed reviews of popular payment gateways like
-                      Stripe, PayPal, and Razorpay. Compare features, fees, ease
-                      of integration, and support to choose the best solution.
+                      Our listing presentations have never been stronger. The photos, videos and descriptions AmigoNex creates get 3x more engagement than what we were doing before.
                     </p>
                     <div class="user">
-                      <div class="user-name">Albert Flores</div>
-                      <div class="user-post">Nursing Assistant</div>
+                      <div class="user-name">Michael Chen</div>
+                      <div class="user-post">Team Lead at EXP Realty</div>
                     </div>
                   </div>
                   <div class="user-image">
                     <img
                       src="https://cdn.prod.website-files.com/647c0aaa6280c5b1cbd48ed1/6824802c074c1d5350a19fc2_Review%202.jpg"
                       loading="lazy"
-                      alt="User Image"
+                      alt="Michael Chen"
+                      class="quote-icon"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div role="listitem" class="w-dyn-item">
+                <div class="testimonial-items">
+                  <div class="testimonial-left">
+                    <img
+                      src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/67fc8ae6e081a2bf7a7911dc_d139ee6c159ece57984ce8c0f132f533_Quote%20Icon.svg"
+                      loading="lazy"
+                      alt="Quote Icon"
+                      class="quote-icon"
+                    />
+                    <p class="testimonial-paragraph">
+                      As a new agent, I had no systems in place. AmigoNex set up my CRM, automated my follow-ups, and basically built my business infrastructure for me.
+                    </p>
+                    <div class="user">
+                      <div class="user-name">David Rodriguez</div>
+                      <div class="user-post">New Agent at Coldwell Banker</div>
+                    </div>
+                  </div>
+                  <div class="user-image">
+                    <img
+                      src="https://cdn.prod.website-files.com/647c0aaa6280c5b1cbd48ed1/6824802c074c1d5350a19fc2_Review%202.jpg"
+                      loading="lazy"
+                      alt="David Rodriguez"
                       class="quote-icon"
                     />
                   </div>
@@ -1663,218 +1080,13 @@
             </div>
           </div>
         </div>
-      </div>
-    </section>
-    <section class="research-section home">
-      <div class="w-layout-blockcontainer container w-container">
-        <section class="section-heading">
-          <div class="tag-block"><p class="section-tag">Research</p></div>
-          <h2 class="section-title center width">Modern Research Hub</h2>
-        </section>
-        <div class="analytics-wrap">
-          <div class="analytics-block">
-            <div class="analytics-text">
-              <h3>User Activity</h3>
-              <p class="simplify-paragraph">
-                Offers insights into user behavior, listing the most frequent
-                payment methods (e.g., Credit Card, UPI, Digital Wallets).
-              </p>
-            </div>
-            <a href="/features" class="primary-button w-button">Get Started</a>
-            <div class="analytics-image-block">
-              <div class="research-image-block">
-                <img
-                  src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/681c9da1678b43f1177d9d8b_Research%20Hub%201.jpg"
-                  loading="lazy"
-                  sizes="(max-width: 512px) 100vw, 512px"
-                  srcset="
-                    https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/681c9da1678b43f1177d9d8b_Research%20Hub%201-p-500.jpg 500w,
-                    https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/681c9da1678b43f1177d9d8b_Research%20Hub%201.jpg       512w
-                  "
-                  alt="User Activity"
-                  class="research-image"
-                />
-              </div>
-              <div class="research-image-block">
-                <img
-                  src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/681c9e0d13cc00a26041dc44_990c893fe5ff545f0894d693a71986b1_User%20Activity.svg"
-                  loading="lazy"
-                  alt="User Activity"
-                  class="research-image"
-                />
-              </div>
-            </div>
-          </div>
-          <div class="analytics-block">
-            <div class="analytics-text">
-              <h3>Analytics Dashboard</h3>
-              <p class="simplify-paragraph">
-                It features metrics such as Total Revenue, Average Transaction
-                Value, Conversion Rate, and Chargeback Rate.
-              </p>
-            </div>
-            <a href="/features" class="primary-button w-button">Get Started</a>
-            <div class="analytics-image-block">
-              <div class="research-image-block">
-                <img
-                  src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/681c9da25a3f07bbd0d47506_Research%20Hub%202.jpg"
-                  loading="lazy"
-                  sizes="(max-width: 512px) 100vw, 512px"
-                  srcset="
-                    https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/681c9da25a3f07bbd0d47506_Research%20Hub%202-p-500.jpg 500w,
-                    https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/681c9da25a3f07bbd0d47506_Research%20Hub%202.jpg       512w
-                  "
-                  alt="User Activity"
-                  class="research-image"
-                />
-              </div>
-              <div class="research-image-block">
-                <img
-                  src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/681c9e7de39641460249da03_2e86b3ce2ac87919dacb69db4645ae3a_Analytics%20Dashboard.svg"
-                  loading="lazy"
-                  alt="User Activity"
-                  class="research-image"
-                />
-              </div>
-            </div>
-          </div>
+        <div class="section-button">
+          <a href="/reviews" class="primary-button w-button">More Reviews</a>
         </div>
       </div>
     </section>
-    <section class="pricing-section">
-      <div class="w-layout-blockcontainer container w-container">
-        <section class="section-heading">
-          <div class="tag-block"><p class="section-tag">Packages</p></div>
-          <h2 class="section-title center width">
-            Choose the Best Plan for You
-          </h2>
-        </section>
-        <div class="w-dyn-list">
-          <div role="list" class="pricing-wrap w-dyn-items">
-            <div role="listitem" class="w-dyn-item">
-              <div class="pricing-box">
-                <div class="plan-image">
-                  <img
-                    src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/682482fa0c46d6f2b06f5f3a_Basic%20Plan.svg"
-                    loading="lazy"
-                    alt="Icon"
-                    class="plan-icon"
-                  />
-                </div>
-                <div class="pricing-top">
-                  <div class="pricing-title">Basic Plan</div>
-                  <div class="short-info">
-                    Perfect for startups with essential features and easy
-                    scalability.
-                  </div>
-                </div>
-                <div class="pricing-features w-richtext">
-                  <ul role="list">
-                    <li>Easy Setup</li>
-                    <li>Limited Payment Methods</li>
-                    <li>Basic Security Features</li>
-                    <li>24/7 Customer Support</li>
-                    <li>Low Transaction Fees</li>
-                  </ul>
-                </div>
-                <div class="button-and-price">
-                  <div
-                    data-wf-sku-bindings="%5B%7B%22from%22%3A%22f_price_%22%2C%22to%22%3A%22innerHTML%22%7D%5D"
-                    class="pricing-price"
-                  >
-                    $ 19.99 USD
-                  </div>
-                  <a href="/product/basic-plan" class="primary-button w-button"
-                    >Get Started</a
-                  >
-                </div>
-              </div>
-            </div>
-            <div role="listitem" class="w-dyn-item">
-              <div class="pricing-box">
-                <div class="plan-image">
-                  <img
-                    src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/682482fa0c46d6f2b06f5f3a_Basic%20Plan.svg"
-                    loading="lazy"
-                    alt="Icon"
-                    class="plan-icon"
-                  />
-                </div>
-                <div class="pricing-top">
-                  <div class="pricing-title">Standard Plan</div>
-                  <div class="short-info">
-                    Tailored for large enterprises with specific requirements.
-                  </div>
-                </div>
-                <div class="pricing-features w-richtext">
-                  <ul role="list">
-                    <li>Multiple Payment Options</li>
-                    <li>Enhanced Security Features</li>
-                    <li>Monthly Analytics Reports</li>
-                    <li>Customizable Checkout Experi...</li>
-                    <li>Priority Support</li>
-                  </ul>
-                </div>
-                <div class="button-and-price">
-                  <div
-                    data-wf-sku-bindings="%5B%7B%22from%22%3A%22f_price_%22%2C%22to%22%3A%22innerHTML%22%7D%5D"
-                    class="pricing-price"
-                  >
-                    $ 59.99 USD
-                  </div>
-                  <a
-                    href="/product/standard-plan"
-                    class="primary-button w-button"
-                    >Get Started</a
-                  >
-                </div>
-              </div>
-            </div>
-            <div role="listitem" class="w-dyn-item">
-              <div class="pricing-box">
-                <div class="plan-image">
-                  <img
-                    src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/682482fa0c46d6f2b06f5f3a_Basic%20Plan.svg"
-                    loading="lazy"
-                    alt="Icon"
-                    class="plan-icon"
-                  />
-                </div>
-                <div class="pricing-top">
-                  <div class="pricing-title">Premium Plan</div>
-                  <div class="short-info">
-                    Start your professional journey and explore new features.
-                  </div>
-                </div>
-                <div class="pricing-features w-richtext">
-                  <ul role="list">
-                    <li>All Payment Methods Included</li>
-                    <li>Advanced Fraud Protection</li>
-                    <li>Real-Time Analytics &amp; Insights</li>
-                    <li>Dedicated Account Manager</li>
-                    <li>Fast Payouts</li>
-                  </ul>
-                </div>
-                <div class="button-and-price">
-                  <div
-                    data-wf-sku-bindings="%5B%7B%22from%22%3A%22f_price_%22%2C%22to%22%3A%22innerHTML%22%7D%5D"
-                    class="pricing-price"
-                  >
-                    $ 199.99 USD
-                  </div>
-                  <a
-                    href="/product/premium-plan"
-                    class="primary-button w-button"
-                    >Get Started</a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="receive-section">
+    
+     <section class="receive-section">
       <div class="w-layout-blockcontainer container w-container">
         <div class="receive-wrap">
           <div
@@ -1922,226 +1134,242 @@
         </div>
       </div>
     </section>
-    <section class="blogs-section">
-      <div class="w-layout-blockcontainer container w-container">
-        <section class="section-heading">
-          <div class="tag-block"><p class="section-tag">Our Blogs</p></div>
-          <h2 class="section-title center width">Articles &amp; Resources</h2>
-        </section>
-        <div class="w-dyn-list">
-          <div role="list" class="blogs-wrap w-dyn-items">
-            <div role="listitem" class="w-dyn-item">
-              <div
-                data-w-id="6c9c1b17-be4e-3eab-fe49-cb4aa05d8fc9"
-                class="blogs-items"
-              >
-                <div class="blogs-image">
-                  <img
-                    src="https://cdn.prod.website-files.com/647c0aaa6280c5b1cbd48ed1/6800e471dd57f1398221a956_Blog%20Image%207.jpg"
-                    loading="lazy"
-                    style="
-                      -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1)
-                        rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                      -moz-transform: translate3d(0, 0, 0) scale3d(1, 1, 1)
-                        rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                      -ms-transform: translate3d(0, 0, 0) scale3d(1, 1, 1)
-                        rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                      transform: translate3d(0, 0, 0) scale3d(1, 1, 1)
-                        rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                    "
-                    alt="Blogs Image"
-                    sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                    srcset="
-                      https://cdn.prod.website-files.com/647c0aaa6280c5b1cbd48ed1/6800e471dd57f1398221a956_Blog%20Image%207-p-500.jpg 500w,
-                      https://cdn.prod.website-files.com/647c0aaa6280c5b1cbd48ed1/6800e471dd57f1398221a956_Blog%20Image%207.jpg       796w
-                    "
-                    class="blogs-img"
-                  />
-                </div>
-                <div class="blogs-text">
-                  <h3 class="blogs-title">
-                    AI &amp; Blockchain Are Transforming Payment Gateways
-                  </h3>
-                  <a
-                    href="/our-blog/ai-blockchain-are-transforming-payment-gateways"
-                    class="blogs-view"
-                    >See More</a
-                  >
-                </div>
+    
+<section class="pricing-section">
+  <div class="w-layout-blockcontainer container w-container">
+    <section class="section-heading">
+      <div class="tag-block"><p class="section-tag">OUR PLANS</p></div>
+      <h2 class="section-title center width">Plans That Grow With Your Business</h2>
+      <p class="section-subtitle center">Choose the perfect package for your real estate business needs. No hidden fees, no surprises - just straightforward pricing for exceptional support.</p>
+    </section>
+    
+    <div class="pricing-toggle">
+      <span class="toggle-label active">Monthly</span>
+      <label class="switch">
+        <input type="checkbox" id="pricing-toggle">
+        <span class="slider round"></span>
+      </label>
+      <span class="toggle-label">Annual (Save 20%)</span>
+    </div>
+
+    <div class="w-dyn-list">
+      <div role="list" class="pricing-wrap w-dyn-items">
+        <div role="listitem" class="w-dyn-item">
+          <div class="pricing-box">
+            <div class="plan-image">
+              <img
+                src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/682482fa0c46d6f2b06f5f3a_Basic%20Plan.svg"
+                loading="lazy"
+                alt="Starter Plan"
+                class="plan-icon"
+              />
+            </div>
+            <div class="pricing-top">
+              <div class="pricing-title">Starter</div>
+              <div class="pricing-price" data-monthly="$199/month" data-annual="$159/year">$199/month</div>
+              <div class="short-info">
+                Perfect for new agents or those with limited transaction volume.
               </div>
             </div>
-            <div role="listitem" class="w-dyn-item">
-              <div
-                data-w-id="6c9c1b17-be4e-3eab-fe49-cb4aa05d8fc9"
-                class="blogs-items"
-              >
-                <div class="blogs-image">
-                  <img
-                    src="https://cdn.prod.website-files.com/647c0aaa6280c5b1cbd48ed1/6800e4617d0e252bd38f4d33_Blog%20Image%206.jpg"
-                    loading="lazy"
-                    style="
-                      -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1)
-                        rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                      -moz-transform: translate3d(0, 0, 0) scale3d(1, 1, 1)
-                        rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                      -ms-transform: translate3d(0, 0, 0) scale3d(1, 1, 1)
-                        rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                      transform: translate3d(0, 0, 0) scale3d(1, 1, 1)
-                        rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                    "
-                    alt="Blogs Image"
-                    sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                    srcset="
-                      https://cdn.prod.website-files.com/647c0aaa6280c5b1cbd48ed1/6800e4617d0e252bd38f4d33_Blog%20Image%206-p-500.jpg 500w,
-                      https://cdn.prod.website-files.com/647c0aaa6280c5b1cbd48ed1/6800e4617d0e252bd38f4d33_Blog%20Image%206.jpg       796w
-                    "
-                    class="blogs-img"
-                  />
-                </div>
-                <div class="blogs-text">
-                  <h3 class="blogs-title">
-                    Are Crypto Payment Gateways the Future of E-Commerce?
-                  </h3>
-                  <a
-                    href="/our-blog/are-crypto-payment-gateways-the-future-of-e-commerce"
-                    class="blogs-view"
-                    >See More</a
-                  >
-                </div>
-              </div>
+            <div class="pricing-features w-richtext">
+              <ul role="list">
+                <li>Up to 5 transactions/month</li>
+                <li>Basic transaction coordination</li>
+                <li>Email and chat support</li>
+                <li>Standard business hours</li>
+                <li>Basic marketing support</li>
+              </ul>
             </div>
-            <div role="listitem" class="w-dyn-item">
-              <div
-                data-w-id="6c9c1b17-be4e-3eab-fe49-cb4aa05d8fc9"
-                class="blogs-items"
-              >
-                <div class="blogs-image">
-                  <img
-                    src="https://cdn.prod.website-files.com/647c0aaa6280c5b1cbd48ed1/6800e44dd125bf339c030de3_Blog%20Image%205.jpg"
-                    loading="lazy"
-                    style="
-                      -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1)
-                        rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                      -moz-transform: translate3d(0, 0, 0) scale3d(1, 1, 1)
-                        rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                      -ms-transform: translate3d(0, 0, 0) scale3d(1, 1, 1)
-                        rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                      transform: translate3d(0, 0, 0) scale3d(1, 1, 1)
-                        rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
-                    "
-                    alt="Blogs Image"
-                    sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
-                    srcset="
-                      https://cdn.prod.website-files.com/647c0aaa6280c5b1cbd48ed1/6800e44dd125bf339c030de3_Blog%20Image%205-p-500.jpg 500w,
-                      https://cdn.prod.website-files.com/647c0aaa6280c5b1cbd48ed1/6800e44dd125bf339c030de3_Blog%20Image%205.jpg       796w
-                    "
-                    class="blogs-img"
-                  />
-                </div>
-                <div class="blogs-text">
-                  <h3 class="blogs-title">
-                    Boost Sales with the Best Payment Gateway Solutions
-                  </h3>
-                  <a
-                    href="/our-blog/boost-sales-with-the-best-payment-gateway-solutions"
-                    class="blogs-view"
-                    >See More</a
-                  >
-                </div>
-              </div>
+            <div class="button-and-price">
+              <a href="/product/starter-plan" class="primary-button w-button">Get Started</a>
             </div>
           </div>
         </div>
-        <div class="section-button">
-          <a href="/blogs" class="primary-button w-button">View All Blogs</a>
-        </div>
-      </div>
-    </section>
-    <section class="branding-section">
-      <div class="w-layout-blockcontainer container w-container">
-        <div class="fade-in-on-scroll">
-          <div
-            data-w-id="a4e74420-0cd7-d73d-673a-9f1fe0dfe77b"
-            class="company-logo-holder"
-          >
-            <div class="logo-wrapper">
-              <div class="logo-item">
-                <img
-                  loading="lazy"
-                  src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/680b483f457a73df9216850d_d3f1824bb7e7c9ad0a73e96669005150_Logo-1.svg"
-                  alt="Logo"
-                />
-              </div>
-              <div class="logo-item">
-                <img
-                  loading="lazy"
-                  src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/680b4851a2e9e7b44216059d_14f9f6cfa89a37cfb2465ef138c5e612_Logo-2.svg"
-                  alt="Logo"
-                />
-              </div>
-              <div class="logo-item">
-                <img
-                  loading="lazy"
-                  src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/680b48603c63d09d8a08d8be_e26dd2a7aced37f44a9c07a5a44acb28_Logo-3.svg"
-                  alt="Logo"
-                />
-              </div>
-              <div class="logo-item">
-                <img
-                  loading="lazy"
-                  src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/680b486d158e6c535e932b16_c8f54090def0a50f68353f979fd1318b_Logo-4.svg"
-                  alt="Logo"
-                />
-              </div>
-              <div class="logo-item">
-                <img
-                  loading="lazy"
-                  src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/680b48796015ac6b1125bb8c_6bed0cf37ff743654195f4690e859209_Logo-5.svg"
-                  alt="Logo"
-                />
+        
+        <div role="listitem" class="w-dyn-item">
+          <div class="pricing-box popular">
+            <div class="popular-badge">Most Popular</div>
+            <div class="plan-image">
+              <img
+                src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/682482fa0c46d6f2b06f5f3a_Basic%20Plan.svg"
+                loading="lazy"
+                alt="Professional Plan"
+                class="plan-icon"
+              />
+            </div>
+            <div class="pricing-top">
+              <div class="pricing-title">Professional</div>
+              <div class="pricing-price" data-monthly="$399/month" data-annual="$319/year">$399/month</div>
+              <div class="short-info">
+                Ideal for established agents with consistent business.
               </div>
             </div>
-            <div class="logo-wrapper">
-              <div class="logo-item">
-                <img
-                  loading="lazy"
-                  src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/680b483f457a73df9216850d_d3f1824bb7e7c9ad0a73e96669005150_Logo-1.svg"
-                  alt="Logo"
-                />
+            <div class="pricing-features w-richtext">
+              <ul role="list">
+                <li>Up to 15 transactions/month</li>
+                <li>Full transaction management</li>
+                <li>Priority phone support</li>
+                <li>Extended support hours</li>
+                <li>Advanced marketing assistance</li>
+                <li>CRM integration</li>
+              </ul>
+            </div>
+            <div class="button-and-price">
+              <a href="/product/professional-plan" class="primary-button w-button">Get Started</a>
+            </div>
+          </div>
+        </div>
+        
+        <div role="listitem" class="w-dyn-item">
+          <div class="pricing-box">
+            <div class="plan-image">
+              <img
+                src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/682482fa0c46d6f2b06f5f3a_Basic%20Plan.svg"
+                loading="lazy"
+                alt="Enterprise Plan"
+                class="plan-icon"
+              />
+            </div>
+            <div class="pricing-top">
+              <div class="pricing-title">Enterprise</div>
+              <div class="pricing-price" data-monthly="$699/month" data-annual="$559/year">$699/month</div>
+              <div class="short-info">
+                For top producers and teams with high volume.
               </div>
-              <div class="logo-item">
-                <img
-                  loading="lazy"
-                  src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/680b4851a2e9e7b44216059d_14f9f6cfa89a37cfb2465ef138c5e612_Logo-2.svg"
-                  alt="Logo"
-                />
-              </div>
-              <div class="logo-item">
-                <img
-                  loading="lazy"
-                  src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/680b48603c63d09d8a08d8be_e26dd2a7aced37f44a9c07a5a44acb28_Logo-3.svg"
-                  alt="Logo"
-                />
-              </div>
-              <div class="logo-item">
-                <img
-                  loading="lazy"
-                  src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/680b486d158e6c535e932b16_c8f54090def0a50f68353f979fd1318b_Logo-4.svg"
-                  alt="Logo"
-                />
-              </div>
-              <div class="logo-item">
-                <img
-                  loading="lazy"
-                  src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/680b48796015ac6b1125bb8c_6bed0cf37ff743654195f4690e859209_Logo-5.svg"
-                  alt="Logo"
-                />
-              </div>
+            </div>
+            <div class="pricing-features w-richtext">
+              <ul role="list">
+                <li>Unlimited transactions</li>
+                <li>Dedicated support specialist</li>
+                <li>24/7 priority support</li>
+                <li>Full marketing suite</li>
+                <li>CRM customization</li>
+                <li>Team management tools</li>
+                <li>Analytics dashboard</li>
+              </ul>
+            </div>
+            <div class="button-and-price">
+              <a href="/product/enterprise-plan" class="primary-button w-button">Get Started</a>
             </div>
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="comparison-section">
+      <h3 class="comparison-title">Plan Feature Breakdown</h3>
+      <p class="comparison-subtitle">See how our different plans compare to help you make the right choice.</p>
+      
+      <div class="comparison-table">
+        <div class="comparison-row header">
+          <div class="comparison-feature">Feature</div>
+          <div class="comparison-plan" data-monthly="$199/month" data-annual="$159/year">$199/month</div>
+          <div class="comparison-plan" data-monthly="$399/month" data-annual="$319/year">$399/month</div>
+          <div class="comparison-plan" data-monthly="$699/month" data-annual="$559/year">$699/month</div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-feature">Transactions Included</div>
+          <div class="comparison-plan">5</div>
+          <div class="comparison-plan">15</div>
+          <div class="comparison-plan">Unlimited</div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-feature">Dedicated Support Specialist</div>
+          <div class="comparison-plan"></div>
+          <div class="comparison-plan"></div>
+          <div class="comparison-plan">✓</div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-feature">Support Availability</div>
+          <div class="comparison-plan">Business Hours</div>
+          <div class="comparison-plan">Extended Hours</div>
+          <div class="comparison-plan">24/7</div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-feature">CRM Integration</div>
+          <div class="comparison-plan"></div>
+          <div class="comparison-plan">✓</div>
+          <div class="comparison-plan">✓</div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-feature">Marketing Support</div>
+          <div class="comparison-plan">Basic</div>
+          <div class="comparison-plan">Advanced</div>
+          <div class="comparison-plan">Full Suite</div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-feature">Transaction Coordination</div>
+          <div class="comparison-plan">Basic</div>
+          <div class="comparison-plan">Full</div>
+          <div class="comparison-plan">Full + Priority</div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-feature">Analytics Dashboard</div>
+          <div class="comparison-plan"></div>
+          <div class="comparison-plan">Basic</div>
+          <div class="comparison-plan">Advanced</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const toggle = document.getElementById('pricing-toggle');
+  const monthlyLabel = document.querySelector('.pricing-toggle .toggle-label:first-child');
+  const annualLabel = document.querySelector('.pricing-toggle .toggle-label:last-child');
+  
+  function updatePricing() {
+    const isAnnual = toggle.checked;
+    
+    // Update toggle labels
+    monthlyLabel.classList.toggle('active', !isAnnual);
+    annualLabel.classList.toggle('active', isAnnual);
+    
+    // Update all price elements
+    document.querySelectorAll('[data-monthly], [data-annual]').forEach(element => {
+      element.textContent = isAnnual ? element.getAttribute('data-annual') : element.getAttribute('data-monthly');
+    });
+  }
+
+  // Initialize
+  updatePricing();
+  
+  // Add event listener
+  toggle.addEventListener('change', updatePricing);
+});
+</script>
+
+
+<!-- FAQ Section -->
+    <section class="faq-section">
+        <h2 class="faq-title">Frequently Asked Questions</h2>
+        <p class="faq-subtitle">Find answers to common questions about our pricing and services.</p>
+        
+        <div class="faq-item">
+            <div class="faq-question">What payment methods do you accept?</div>
+            <div class="faq-answer">We accept all major credit cards, PayPal, and bank transfers. Our payment processing is secure and encrypted for your protection.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Can I change plans later?</div>
+            <div class="faq-answer">Yes, you can upgrade or downgrade your plan at any time through your account dashboard. Changes take effect immediately.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Is there a contract or long-term commitment?</div>
+            <div class="faq-answer">No, all our plans are month-to-month with no long-term contracts. You can cancel anytime with no penalties.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">What happens if I exceed my transaction limit?</div>
+            <div class="faq-answer">Additional transactions are billed at $25 each for Starter and $15 each for Professional plans. Enterprise plans have unlimited transactions.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Do you offer discounts for teams?</div>
+            <div class="faq-answer">Yes, we offer special pricing for teams of 3 or more agents. Contact our sales team for customized team pricing options.</div>
+        </div>
     </section>
+
+    
     <section class="footer-section">
       <div class="w-layout-blockcontainer container w-container">
         <div class="footer-wrap">
@@ -2149,14 +1377,18 @@
             <div class="footer-about">
               <a href="/" aria-current="page" class="w-inline-block w--current"
                 ><img
-                  src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/67f7b292aa6c388ad6abaf8a_486add0f26cfdb5d7df1324556a25df6_Header%20Logo.svg"
+                  src="./public/copt.png"
                   loading="lazy"
-                  alt="Footer Logo"
+                  alt="AmigoNex Logo"
+                   width="250"
               /></a>
               <p class="footer-peragraph">
-                Secure payments, multiple options, 24/7 support, seamless
-                integration, trusted by businesses.
+                Your complete real estate support system handling transaction coordination, listing marketing, and social media management.
               </p>
+              <div class="contact-info">
+                <div>contact@amigonex.com</div>
+                <div>(555) 123-4567</div>
+              </div>
               <div class="social-media">
                 <a
                   href="https://www.facebook.com/login/"
@@ -2164,69 +1396,60 @@
                   ><img
                     loading="lazy"
                     src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/67ff3bfb1fcf6edc827a901e_Facebook%20Icon.svg"
-                    alt="Social Media Icon" /></a
+                    alt="Facebook" /></a
                 ><a href="https://x.com/" class="social-icon w-inline-block"
                   ><img
                     loading="lazy"
                     src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/67ff3bfb1fcf6edc827a901f_Twitter%20Icon.svg"
-                    alt="Social Media Icon" /></a
+                    alt="Twitter" /></a
                 ><a
                   href="https://www.instagram.com/accounts/login/?hl=en"
                   class="social-icon w-inline-block"
                   ><img
                     loading="lazy"
                     src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/67ff3bfb1fcf6edc827a9020_Instagram%20Icon.svg"
-                    alt="Social Media Icon" /></a
+                    alt="Instagram" /></a
                 ><a
                   href="https://www.youtube.com/"
                   class="social-icon w-inline-block"
                   ><img
                     loading="lazy"
                     src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/67ff3bfb1fcf6edc827a9021_Youtube%20Icon.svg"
-                    alt="Social Media Icon" /></a
+                    alt="YouTube" /></a
                 ><a
-                  href="https://in.linkedin.com/?mcid=6844056167778418689&amp;src=go-pa&amp;trk=sem-ga_campid.14650114788_asid.151761418307_crid.657403558721_kw.linkedin%20login_d.c_tid.kwd-12704335873_n.g_mt.e_geo.9062196&amp;cid=&amp;gad_source=1&amp;gad_campaignid=14650114788&amp;gbraid=0AAAAABKX7wHBFbDZViHvBI7lFzB08hPUs&amp;gclid=EAIaIQobChMIzbaZ8ebljAMViaVaBR1j6hL8EAAYASAAEgLdo_D_BwE&amp;gclsrc=aw.ds"
+                  href="https://www.linkedin.com/"
                   class="social-icon w-inline-block"
                   ><img
                     loading="lazy"
                     src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/67ff3bfb1fcf6edc827a9022_Linkedin%20Icon.svg"
-                    alt="Social Media Icon"
+                    alt="LinkedIn"
                 /></a>
-              </div>
-            </div>
-            <div>
-              <h4 class="footer-title">Product</h4>
-              <div class="footer-link-list">
-                <a href="/" aria-current="page" class="footer-link w--current"
-                  >Home</a
-                ><a href="/about-us" class="footer-link">About Us</a
-                ><a href="/features" class="footer-link">Features</a
-                ><a href="/blogs" class="footer-link">Blogs</a
-                ><a href="/reviews" class="footer-link">Reviews</a>
               </div>
             </div>
             <div>
               <h4 class="footer-title">Company</h4>
               <div class="footer-link-list">
-                <a href="/pricing" class="footer-link">Pricing</a
-                ><a href="#" class="footer-link">Sign In</a
+                <a href="/about-us" class="footer-link">About Us</a
+                ><a href="/services" class="footer-link">Services</a
+                ><a href="/pricing" class="footer-link">Pricing</a
                 ><a href="/careers" class="footer-link">Careers</a
-                ><a href="/contact-us" class="footer-link">Contact us</a
-                ><a href="/faqs" class="footer-link">FAQ</a>
+                ><a href="/contact-us" class="footer-link">Contact Us</a>
               </div>
             </div>
             <div>
-              <h4 class="footer-title">Utilities</h4>
+              <h4 class="footer-title">Resources</h4>
               <div class="footer-link-list">
-                <a href="/template-info/changelog" class="footer-link"
-                  >Changelog</a
-                ><a href="/template-info/licensing" class="footer-link"
-                  >Licensing</a
-                ><a href="/coming-soon" class="footer-link">Coming Soon</a
-                ><a
-                  href="https://glidegate-template.webflow.io/401"
-                  class="footer-link"
-                  >Password</a
+                <a href="/blogs" class="footer-link">Blog</a
+                ><a href="/faqs" class="footer-link">FAQs</a
+                ><a href="/testimonials" class="footer-link">Testimonials</a
+                ><a href="/portfolio" class="footer-link">Portfolio</a>
+              </div>
+            </div>
+            <div>
+              <h4 class="footer-title">Legal</h4>
+              <div class="footer-link-list">
+                <a href="/privacy-policy" class="footer-link">Privacy Policy</a
+                ><a href="/terms-conditions" class="footer-link">Terms & Conditions</a
                 ><a href="/return-policy" class="footer-link">Return Policy</a>
               </div>
             </div>
@@ -2234,15 +1457,8 @@
           <div class="footer-bottom">
             <div class="footer-left">
               <div class="rights-reserved-text">
-                © 2025 Knights. All rights reserved.
+                © 2025 AmigoNex - Your Real Estate Ally. All rights reserved.
               </div>
-              <div class="webflow-link">Powered by Webflow.</div>
-            </div>
-            <div class="footer-right">
-              <a href="/privacy-policy" class="footer-link">Privacy Policy</a
-              ><a href="/terms-conditions" class="footer-link"
-                >Terms &amp; Conditions</a
-              >
             </div>
           </div>
         </div>
@@ -2258,7 +1474,7 @@
       src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/js/webflow.schunk.9bb3228a770d507b.js"
       type="text/javascript"
     ></script>
-    <script
+     <script
       src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/js/webflow.schunk.8466a40e829d582f.js"
       type="text/javascript"
     ></script>
@@ -2266,5 +1482,71 @@
       src="https://cdn.prod.website-files.com/6479bf3077a280ff74cc75f1/js/webflow.1ceb5221.52adebffc407c8da.js"
       type="text/javascript"
     ></script>
-  </body>
+  
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // FAQ Accordion Functionality
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const isActive = question.classList.contains('active');
+                    
+                    // Close all other answers
+                    faqQuestions.forEach(q => {
+                        if (q !== question) {
+                            q.classList.remove('active');
+                            q.nextElementSibling.classList.remove('show');
+                        }
+                    });
+                    
+                    // Toggle current answer
+                    question.classList.toggle('active');
+                    
+                    if (isActive) {
+                        answer.classList.remove('show');
+                    } else {
+                        answer.classList.add('show');
+                    }
+                });
+            });
+            
+            // Mobile-friendly table enhancements
+            function handleTableResponsive() {
+                const comparisonTable = document.querySelector('.comparison-table');
+                if (window.innerWidth <= 768) {
+                    // For mobile, we've already handled it with CSS
+                    // This is just a fallback for very old browsers
+                    comparisonTable.classList.add('mobile-view');
+                } else {
+                    comparisonTable.classList.remove('mobile-view');
+                }
+            }
+            
+            // Initial check
+            handleTableResponsive();
+            
+            // Check on window resize
+            window.addEventListener('resize', handleTableResponsive);
+        });
+    </script>
+
+<script>document.querySelector('.switch input').addEventListener('change', function() {
+  const pricingToggle = document.querySelector('.pricing-toggle');
+  if (this.checked) {
+    pricingToggle.classList.remove('monthly-active');
+    pricingToggle.classList.add('annual-active');
+  } else {
+    pricingToggle.classList.remove('annual-active');
+    pricingToggle.classList.add('monthly-active');
+  }
+});
+
+// Initialize on load
+document.addEventListener('DOMContentLoaded', function() {
+  const pricingToggle = document.querySelector('.pricing-toggle');
+  pricingToggle.classList.add('monthly-active');
+});</script>
+</body>
 </html>
